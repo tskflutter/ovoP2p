@@ -3,7 +3,6 @@ import 'package:ovolutter/app/screens/bottom_nav_section/home/widget/animated_li
 import 'package:get/get.dart';
 import 'package:ovolutter/data/controller/home/home_controller.dart';
 import 'package:ovolutter/data/repo/home/home_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/app/screens/bottom_nav_section/home/widget/main_item_section.dart';

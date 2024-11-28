@@ -1,4 +1,3 @@
-import 'package:ovolutter/core/utils/method.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/url_container.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';

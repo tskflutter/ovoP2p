@@ -7,7 +7,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/ticket_helper.dart';
 import 'package:ovolutter/data/controller/support/support_controller.dart';
 import 'package:ovolutter/data/repo/support/support_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/components/floating_action_button/fab.dart';

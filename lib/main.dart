@@ -14,7 +14,6 @@ import 'package:ovolutter/environment.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/messages.dart';
-import 'package:ovolutter/core/utils/my_strings.dart';
 
 import 'package:ovolutter/data/services/push_notification_service.dart';
 import 'core/di_service/di_services.dart' as di_service;
@@ -62,7 +61,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     // Get the screen size and orientation
     final size = MediaQuery.of(context).size;

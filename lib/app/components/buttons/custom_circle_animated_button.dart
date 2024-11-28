@@ -8,14 +8,14 @@ class CustomCircleAnimatedButton extends StatefulWidget {
   BoxBorder? border;
 
   CustomCircleAnimatedButton({
-    Key? key,
+    super.key,
     required this.child,
     required this.onTap,
     required this.height,
     required this.width,
     required this.backgroundColor,
     this.border,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomCircleAnimatedButton> createState() => _CustomCircleAnimatedButtonState();

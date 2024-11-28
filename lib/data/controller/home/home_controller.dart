@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:ovolutter/data/model/general_setting/general_setting_response_model.dart';
 import 'package:ovolutter/data/repo/home/home_repo.dart';
 import 'package:get/get.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/style.dart';
 
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
-import 'package:ovolutter/app/components/text-field/custom_text_field.dart';
 import 'package:ovolutter/app/components/text-field/label_text_field.dart';
 import 'package:ovolutter/app/screens/deposits/new_deposit/deposit_bottomsheet.dart';
 import 'package:get/get.dart';
@@ -11,12 +10,8 @@ import '../../../../core/utils/my_color.dart';
 import '../../../../core/utils/my_strings.dart';
 import '../../../../data/controller/deposit/add_new_deposit_controller.dart';
 import '../../../../data/repo/deposit/deposit_repo.dart';
-import '../../../../data/services/api_service.dart';
 import '../../../components/app-bar/custom_appbar.dart';
-import '../../../components/buttons/rounded_button.dart';
-import '../../../components/buttons/rounded_loading_button.dart';
 import '../../../components/custom_loader/custom_loader.dart';
-import '../../../components/text-field/custom_amount_text_field.dart';
 import 'info_widget.dart';
 
 class NewDepositScreen extends StatefulWidget {

@@ -6,7 +6,6 @@ import 'dart:convert';
 
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 
-import '../auth/login/login_response_model.dart';
 
 CommunityGroup communityGroupFromJson(String str) => CommunityGroup.fromJson(json.decode(str));
 

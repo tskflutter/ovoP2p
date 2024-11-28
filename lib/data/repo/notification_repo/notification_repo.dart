@@ -1,4 +1,3 @@
-import '../../../core/utils/method.dart';
 import '../../../core/utils/url_container.dart';
 import '../../services/api_service.dart';
 

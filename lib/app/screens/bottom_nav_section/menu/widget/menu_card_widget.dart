@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/dimensions.dart';
-import '../../../../../core/utils/my_color.dart';
 
 class MenuCardWidget extends StatelessWidget {
   final Widget child;

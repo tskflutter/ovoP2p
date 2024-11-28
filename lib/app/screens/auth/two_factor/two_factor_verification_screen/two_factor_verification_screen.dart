@@ -11,10 +11,7 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/auth/two_factor_controller.dart';
 import 'package:ovolutter/data/repo/auth/two_factor_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
-import 'package:ovolutter/app/components/buttons/rounded_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_loading_button.dart';
 import 'package:ovolutter/app/components/text/small_text.dart';
 import 'package:ovolutter/app/components/will_pop_widget.dart';
 

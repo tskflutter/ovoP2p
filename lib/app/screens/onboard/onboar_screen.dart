@@ -6,7 +6,6 @@ import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/data/controller/onboard/onboard_controller.dart';
-import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/screens/onboard/widget/onboard_ripple_body.dart';
 import 'package:get/get.dart';
 import 'package:dots_indicator/dots_indicator.dart';

@@ -1,14 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
-import 'package:ovolutter/data/model/general_setting/general_setting_response_model.dart';
 import 'package:ovolutter/data/model/user/user.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../app/packages/signin_with_linkdin/signin_with_linkedin.dart';
 import '../../model/auth/login/login_response_model.dart';
 import '../../model/global/response_model/response_model.dart';
 import '../../repo/auth/social_login_repo.dart';

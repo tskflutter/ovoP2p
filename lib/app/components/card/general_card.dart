@@ -9,7 +9,7 @@ import 'package:ovolutter/core/utils/util.dart';
 import 'package:get/get.dart';
 
 class GeneralCard extends StatelessWidget {
-  GeneralCard({super.key});
+  const GeneralCard({super.key});
 
   @override
     Widget build(BuildContext context) {

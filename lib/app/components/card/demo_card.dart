@@ -6,10 +6,9 @@ import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/core/utils/util.dart';
 
-import 'package:get/get.dart';
 
 class DemoCard extends StatelessWidget {
-  DemoCard({super.key});
+  const DemoCard({super.key});
 
   @override
     Widget build(BuildContext context) {

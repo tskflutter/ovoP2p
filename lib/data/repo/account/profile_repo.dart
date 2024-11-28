@@ -1,13 +1,7 @@
-import 'dart:convert';
 
-import 'package:get/get.dart';
-import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/url_container.dart';
-import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/services/api_service.dart';
-import 'package:ovolutter/data/services/shared_pref_service.dart';
-import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 
 import '../../model/profile/profile_post_model.dart';
 import '../../model/profile_complete/profile_complete_post_model.dart';
@@ -88,7 +82,7 @@ class ProfileRepo {
 
   Future<dynamic> getCountryList() async {
     String url = '${UrlContainer.baseUrl}${UrlContainer.countryEndPoint}';
-    ResponseModel model = await await ApiService.getRequest(
+    ResponseModel model = await ApiService.getRequest(
       url,
     );
     return model;

@@ -5,7 +5,6 @@
 import 'dart:convert';
 
 import 'package:ovolutter/core/helper/string_format_helper.dart';
-import 'package:ovolutter/data/model/auth/login/login_response_model.dart';
 
 SupportTicketViewResponseModel supportTicketViewResponseModelFromJson(String str) => SupportTicketViewResponseModel.fromJson(json.decode(str));
 

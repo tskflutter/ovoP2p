@@ -1,4 +1,3 @@
-import 'package:ovolutter/data/model/language/language_model.dart';
 
 class MyStrings {
 

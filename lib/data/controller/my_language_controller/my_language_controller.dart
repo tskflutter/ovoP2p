@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/web.dart';
 import 'package:ovolutter/core/translations/localization_controller.dart';
 import 'package:ovolutter/core/utils/messages.dart';
 import 'package:ovolutter/core/utils/url_container.dart';

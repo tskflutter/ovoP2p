@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_button.dart';
-import 'package:ovolutter/app/components/text-field/custom_text_field.dart';
 import 'package:ovolutter/app/components/text-field/label_text_field.dart';
 import 'package:ovolutter/app/screens/withdraw/add_withdraw_screen/withdraw_bottomsheet.dart';
 import 'package:get/get.dart';
@@ -11,11 +9,8 @@ import '../../../../core/utils/my_color.dart';
 import '../../../../core/utils/my_strings.dart';
 import '../../../../data/controller/withdraw/add_new_withdraw_controller.dart';
 import '../../../../data/repo/withdraw/withdraw_repo.dart';
-import '../../../../data/services/api_service.dart';
 import '../../../components/app-bar/custom_appbar.dart';
-import '../../../components/buttons/rounded_loading_button.dart';
 import '../../../components/custom_loader/custom_loader.dart';
-import '../../../components/text-field/custom_amount_text_field.dart';
 import '../../../components/text-field/custom_drop_down_button_with_text_field2.dart';
 import 'info_widget.dart';
 

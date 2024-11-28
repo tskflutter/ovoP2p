@@ -7,7 +7,6 @@ import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/auth/auth/registration_controller.dart';
 import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
 import 'package:ovolutter/data/repo/auth/signup_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/buttons/my_text_button.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';

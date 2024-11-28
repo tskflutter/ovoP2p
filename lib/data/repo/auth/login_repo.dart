@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:ovolutter/core/utils/method.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/url_container.dart';
 import 'package:ovolutter/data/model/auth/verification/email_verification_model.dart';

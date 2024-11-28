@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:ovolutter/data/model/user/user.dart';
 import 'package:get/get.dart';
@@ -11,8 +10,6 @@ import 'package:ovolutter/data/services/shared_pref_service.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../app/packages/signin_with_linkdin/signin_with_linkedin.dart';
-import '../../model/general_setting/general_setting_response_model.dart';
 
 class LoginController extends GetxController {
   LoginRepo loginRepo;

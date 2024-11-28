@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
-import 'package:ovolutter/core/utils/my_color.dart';
-import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/app/components/image/custom_svg_picture.dart';
 import 'package:get/get.dart';
 

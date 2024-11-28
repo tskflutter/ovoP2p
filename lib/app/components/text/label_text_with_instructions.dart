@@ -23,7 +23,7 @@ class LabelTextInstruction extends StatelessWidget {
   @override
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    final GlobalKey<TooltipState> _tooltipKey = GlobalKey<TooltipState>();
+    final GlobalKey<TooltipState> tooltipKey = GlobalKey<TooltipState>();
 
     return isRequired
         ? Row(
@@ -36,11 +36,11 @@ class LabelTextInstruction extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: Dimensions.space2, end: Dimensions.space10),
                   child: Tooltip(
-                      key: _tooltipKey,
+                      key: tooltipKey,
                       message: "$instructions",
                       child: GestureDetector(
                         onTap: () {
-                          _tooltipKey.currentState?.ensureTooltipVisible();
+                          tooltipKey.currentState?.ensureTooltipVisible();
                         },
                         child: Icon(
                           Icons.info_outline_rounded,
@@ -67,11 +67,11 @@ class LabelTextInstruction extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: Dimensions.space2, end: Dimensions.space10),
                   child: Tooltip(
-                      key: _tooltipKey,
+                      key: tooltipKey,
                       message: "$instructions",
                       child: GestureDetector(
                         onTap: () {
-                          _tooltipKey.currentState?.ensureTooltipVisible();
+                          tooltipKey.currentState?.ensureTooltipVisible();
                         },
                         child: Icon(
                           Icons.info_outline_rounded,

@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:ui';
 
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
@@ -8,7 +6,6 @@ import 'package:ovolutter/data/services/shared_pref_service.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
 
-import '../../../core/route/route.dart';
 import '../../model/authorization/authorization_response_model.dart' as auth_model;
 import '../../repo/notification_repo/notification_repo.dart';
 

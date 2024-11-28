@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/controller/account/change_password_controller.dart';
-import 'package:ovolutter/app/components/buttons/rounded_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_loading_button.dart';
 import 'package:ovolutter/app/components/text-field/custom_text_field.dart';
 
 class ChangePasswordForm extends StatefulWidget {

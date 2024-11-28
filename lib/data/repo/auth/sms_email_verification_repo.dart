@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:ovolutter/core/utils/method.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/url_container.dart';
 import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';

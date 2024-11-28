@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/app/components/divider/custom_divider.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/utils/dimensions.dart';
-import '../../../../core/utils/my_color.dart';
 import '../../../../core/utils/my_strings.dart';
 import '../../../../data/controller/transaction/transactions_controller.dart';
 import '../../../components/animated_widget/expanded_widget.dart';

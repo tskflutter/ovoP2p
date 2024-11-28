@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ovolutter/core/utils/my_color.dart';
 
 class CustomSvgPicture extends StatelessWidget {
   final String image;

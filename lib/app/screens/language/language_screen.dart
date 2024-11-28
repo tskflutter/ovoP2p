@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
-import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 
 import 'package:ovolutter/data/controller/my_language_controller/my_language_controller.dart';
 import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';

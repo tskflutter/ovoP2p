@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';

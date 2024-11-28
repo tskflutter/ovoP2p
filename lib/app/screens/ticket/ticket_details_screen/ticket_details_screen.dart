@@ -5,7 +5,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/support/ticket_details_controller.dart';
 import 'package:ovolutter/data/repo/support/support_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/screens/ticket/ticket_details_screen/sections/message_list_section.dart';

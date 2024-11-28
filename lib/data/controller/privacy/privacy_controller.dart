@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:ovolutter/data/model/about/privacy_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';

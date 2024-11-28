@@ -2,24 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:get/get.dart';
 import '../../../../core/utils/dimensions.dart';
-import '../../../../core/utils/my_color.dart';
 import '../../../../core/utils/my_strings.dart';
 import '../../../../data/controller/withdraw/withdraw_confirm_controller.dart';
 import '../../../../data/model/withdraw/withdraw_request_response_model.dart';
 import '../../../../data/repo/account/profile_repo.dart';
-import '../../../../data/services/api_service.dart';
 import '../../../components/app-bar/custom_appbar.dart';
-import '../../../components/buttons/rounded_button.dart';
-import '../../../components/buttons/rounded_loading_button.dart';
 import '../../../components/checkbox/custom_check_box.dart';
 import '../../../components/custom_drop_down_button_with_text_field.dart';
 import '../../../components/custom_loader/custom_loader.dart';
 import '../../../components/custom_radio_button.dart';
-import '../../../components/form_row.dart';
-import '../../../components/text-field/custom_drop_down_text_field.dart';
 import '../../../components/text-field/custom_text_field.dart';
 import '../../../components/text/label_text_with_instructions.dart';
-import 'widget/choose_file_list_item.dart';
 import 'widget/file_item.dart';
 
 class WithdrawConfirmScreen extends StatefulWidget {

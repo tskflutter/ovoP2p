@@ -20,7 +20,7 @@ class CustomDropDownTextField3 extends StatefulWidget {
   final bool isUnderLined;
 
   const CustomDropDownTextField3({
-    Key? key,
+    super.key,
     this.labelText,
     this.hintText,
     required this.selectedValue,
@@ -33,7 +33,7 @@ class CustomDropDownTextField3 extends StatefulWidget {
     this.radius = Dimensions.defaultRadius,
     this.needLabel = true,
     this.isUnderLined = false,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomDropDownTextField3> createState() => _CustomDropDownTextField3State();

@@ -9,10 +9,7 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/auth/forget_password/verify_password_controller.dart';
 import 'package:ovolutter/data/repo/auth/login_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
-import 'package:ovolutter/app/components/buttons/rounded_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_loading_button.dart';
 import 'package:ovolutter/app/components/image/custom_svg_picture.dart';
 import 'package:ovolutter/app/components/text/default_text.dart';
 

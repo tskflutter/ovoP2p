@@ -8,8 +8,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/data/controller/support/ticket_details_controller.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_button.dart';
-import 'package:ovolutter/app/components/buttons/rounded_loading_button.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/utils/my_icons.dart';

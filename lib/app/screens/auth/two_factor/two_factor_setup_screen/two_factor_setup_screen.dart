@@ -4,13 +4,11 @@ import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/screens/auth/two_factor/two_factor_setup_screen/sections/two_factor_disable_section.dart';
 import 'package:ovolutter/app/screens/auth/two_factor/two_factor_setup_screen/sections/two_factor_enable_section.dart';
 import 'package:get/get.dart';
-import '../../../../../core/utils/my_color.dart';
 import '../../../../../core/utils/my_strings.dart';
 import '../../../../../data/controller/account/profile_controller.dart';
 import '../../../../../data/controller/auth/two_factor_controller.dart';
 import '../../../../../data/repo/account/profile_repo.dart';
 import '../../../../../data/repo/auth/two_factor_repo.dart';
-import '../../../../../data/services/api_service.dart';
 
 class TwoFactorSetupScreen extends StatefulWidget {
   const TwoFactorSetupScreen({super.key});

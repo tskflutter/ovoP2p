@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
-import 'package:ovolutter/data/controller/kyc_controller/kyc_controller.dart';
-import 'package:ovolutter/data/model/kyc/kyc_response_model.dart';
 import 'package:ovolutter/app/screens/auth/kyc/widget/widget/choose_file_list_item.dart';
 
 import '../../../../../data/controller/withdraw/withdraw_confirm_controller.dart';

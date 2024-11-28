@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/repo/notification_repo/notification_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/components/no_notification_screen.dart';
@@ -14,7 +13,7 @@ import '../../../data/controller/notifications/notification_controller.dart';
 
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+  const NotificationScreen({super.key});
 
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();

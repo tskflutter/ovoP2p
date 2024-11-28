@@ -1,18 +1,14 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
-import 'package:ovolutter/data/controller/support/support_controller.dart';
 import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/model/support/new_ticket_store_model.dart';
 import 'package:ovolutter/data/repo/support/support_repo.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 
 class NewTicketController extends GetxController {
   SupportRepo repo;

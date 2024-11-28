@@ -3,7 +3,6 @@ import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
-import 'package:ovolutter/core/utils/style.dart';
 
 import 'package:ovolutter/app/components/custom_no_data_found_class.dart';
 import 'package:ovolutter/app/screens/deposits/widget/custom_deposits_card.dart';
@@ -18,7 +17,6 @@ import '../../../core/utils/my_color.dart';
 import '../../../core/utils/my_strings.dart';
 import '../../../data/controller/deposit/deposit_history_controller.dart';
 import '../../../data/repo/deposit/deposit_repo.dart';
-import '../../../data/services/api_service.dart';
 
 class DepositsHistoryScreen extends StatefulWidget {
   const DepositsHistoryScreen({super.key});

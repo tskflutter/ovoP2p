@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:logger/logger.dart';
 import 'package:ovolutter/app/components/image/my_image_widget.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
@@ -13,17 +12,14 @@ import 'package:ovolutter/data/controller/auth/login_controller.dart';
 import 'package:ovolutter/data/controller/auth/social_login_controller.dart';
 import 'package:ovolutter/data/repo/auth/login_repo.dart';
 import 'package:ovolutter/data/repo/auth/social_login_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/data/services/shared_pref_service.dart';
 import 'package:ovolutter/environment.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:ovolutter/app/components/buttons/my_text_button.dart';
 import 'package:ovolutter/app/components/text-field/label_text_field.dart';
 import 'package:ovolutter/app/components/text/default_text.dart';
-import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/app/screens/auth/login/widget/social_login_section.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

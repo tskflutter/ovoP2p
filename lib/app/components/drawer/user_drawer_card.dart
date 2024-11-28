@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
-import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
 import 'package:ovolutter/core/utils/style.dart';
-import 'package:ovolutter/app/components/image/custom_svg_picture.dart';
 import 'package:ovolutter/app/components/image/my_image_widget.dart';
 import 'package:get/get.dart';
 

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/column_widget/card_column.dart';
 import 'package:ovolutter/app/screens/withdraw/widget/status_widget.dart';
-import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/app/components/divider/custom_divider.dart';
 
 import '../../../../core/utils/dimensions.dart';
-import '../../../../core/utils/my_color.dart';
 import '../../../../core/utils/my_strings.dart';
 
 class CustomWithdrawCard extends StatelessWidget {

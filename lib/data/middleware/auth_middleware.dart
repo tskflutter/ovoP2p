@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart' as dio;
 import 'package:get/get.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/data/middleware/app_middleware.dart';

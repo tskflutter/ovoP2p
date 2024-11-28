@@ -4,7 +4,6 @@ import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 import 'package:ovolutter/data/controller/withdraw/withdraw_history_controller.dart';
 import 'package:ovolutter/data/repo/withdraw/withdraw_history_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/custom_no_data_found_class.dart';
 import 'package:get/get.dart';
 import '../../../../core/helper/date_converter.dart';

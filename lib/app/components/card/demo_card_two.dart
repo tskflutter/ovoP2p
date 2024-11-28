@@ -10,10 +10,9 @@ import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/core/utils/util.dart';
 
 
-import 'package:get/get.dart';
 
 class DemoCardTwo extends StatelessWidget {
-  DemoCardTwo({super.key});
+  const DemoCardTwo({super.key});
   @override
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);

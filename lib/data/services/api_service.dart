@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
-import 'package:ovolutter/core/utils/url_container.dart';
 import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:ovolutter/data/middleware/auth_middleware.dart';
 import 'package:ovolutter/data/middleware/kyc_middle_ware.dart';
@@ -11,7 +9,6 @@ import 'package:ovolutter/data/middleware/profile_status_middleware.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/services/shared_pref_service.dart';
 
-import '../model/authorization/authorization_response_model.dart';
 
 class ApiService {
   static final Dio _dio = Dio(

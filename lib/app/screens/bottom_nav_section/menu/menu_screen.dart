@@ -4,7 +4,6 @@ import 'package:ovolutter/app/screens/bottom_nav_section/menu/widget/delete_acco
 import 'package:ovolutter/app/screens/bottom_nav_section/menu/widget/menu_card_widget.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/core/route/route.dart';
-import 'package:ovolutter/core/translations/localization_controller.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
@@ -13,7 +12,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/controller/menu/my_menu_controller.dart';
 import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
 import 'package:ovolutter/data/repo/menu_repo/menu_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/divider/custom_divider.dart';
 import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/app/screens/bottom_nav_section/menu/widget/menu_item.dart';

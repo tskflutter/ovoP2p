@@ -10,7 +10,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/privacy/privacy_controller.dart';
 import 'package:ovolutter/data/repo/privacy_repo/privacy_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 
 class PrivacyPolicyScreen extends StatefulWidget {
   const PrivacyPolicyScreen({super.key});

@@ -10,7 +10,6 @@ import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/controller/auth/auth/sms_verification_controler.dart';
 import 'package:ovolutter/data/repo/auth/sms_email_verification_repo.dart';
-import 'package:ovolutter/data/services/api_service.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/text/small_text.dart';
 import 'package:ovolutter/app/components/will_pop_widget.dart';

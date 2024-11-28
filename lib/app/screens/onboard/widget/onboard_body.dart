@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
-import 'package:ovolutter/core/utils/my_images.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/data/model/onboard/onboard_model.dart';
 import 'package:flutter_svg/svg.dart';

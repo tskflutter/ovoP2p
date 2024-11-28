@@ -5,16 +5,14 @@ import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/dimensions.dart';
-import '../../../core/utils/my_color.dart';
 import '../../../core/utils/my_strings.dart';
 import '../../../data/controller/faq_controller/faq_controller.dart';
 import '../../../data/repo/faq_repo/faq_repo.dart';
-import '../../../data/services/api_service.dart';
 import 'faq_widget.dart';
 
 
 class FaqScreen extends StatefulWidget {
-  const FaqScreen({Key? key}) : super(key: key);
+  const FaqScreen({super.key});
 
   @override
   State<FaqScreen> createState() => _FaqScreenState();

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:ovolutter/app/components/image/custom_svg_picture.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
-import 'package:ovolutter/core/utils/style.dart';
 
 class MenuItems extends StatelessWidget {
   final String imageSrc;

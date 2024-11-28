@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/helper/date_converter.dart';
-import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_icons.dart';
