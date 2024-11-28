@@ -14,4 +14,5 @@ export 'style.dart';
 export 'ticket_helper.dart';
 export 'url_container.dart';
 export 'util.dart';
+export 'app_style.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
