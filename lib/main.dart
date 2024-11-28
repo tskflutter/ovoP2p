@@ -36,7 +36,7 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-//APPNAME
+//APP ENTRY POINT
 class OvoApp extends StatefulWidget {
   final Map<String, Map<String, String>> languages;
   const OvoApp({super.key, required this.languages});
@@ -48,7 +48,6 @@ class OvoApp extends StatefulWidget {
 class _OvoAppState extends State<OvoApp> {
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     // Get the screen size and orientation
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;

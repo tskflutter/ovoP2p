@@ -13,15 +13,24 @@ import '../../core/utils/url_container.dart';
 import '../../firebase_options.dart';
 import 'api_service.dart';
 
+Future<void> _messageHandler(RemoteMessage message) async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  SharedPreferenceService.setBool(SharedPreferenceService.hasNewNotificationKey, true);
+}
+
 class PushNotificationService {
   PushNotificationService();
 
   Future<void> setupInteractedMessage() async {
+    FirebaseMessaging.onBackgroundMessage(_messageHandler);
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     FirebaseMessaging messaging = FirebaseMessaging.instance;
-    FirebaseMessaging.onBackgroundMessage(_messageHandler);
+
     await _requestPermissions();
 
     await messaging.requestPermission(
@@ -41,14 +50,6 @@ class PushNotificationService {
     messaging.getToken().then((value) {});
     await enableIOSNotifications();
     await registerNotificationListeners();
-  }
-
-  Future<void> _messageHandler(RemoteMessage message) async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-
-    SharedPreferenceService.setBool(SharedPreferenceService.hasNewNotificationKey, true);
   }
 
   registerNotificationListeners() async {
