@@ -5,14 +5,14 @@ import '../../../core/utils/style.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String text;
-  final VoidCallback press;
+  final VoidCallback onTap;
   final TextStyle? style;
   final double padding;
 
   const CustomTextButton({
     super.key,
     required this.text,
-    required this.press,
+    required this.onTap,
     this.style,
     this.padding = 0,
   });
@@ -32,7 +32,7 @@ class CustomTextButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: Size.zero,
       ),
-      onPressed: press,
+      onPressed: onTap,
       child: Text(text, maxLines: 2, overflow: TextOverflow.ellipsis, style: style ?? regularLarge.copyWith(color: MyColor.getPrimaryColor())),
     );
   }

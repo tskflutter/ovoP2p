@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:ovolutter/core/utils/util.dart';
 
 class GlobalKYCForm {
   GlobalKYCForm({List<GlobalFormModle>? list}) {
@@ -25,7 +26,7 @@ class GlobalKYCForm {
       _list;
     } catch (e) {
       if (kDebugMode) {
-        print(e.toString());
+        printX(e.toString());
       }
     }
   }

@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 
+import '../../../core/utils/util_exporter.dart';
 
 class KycResponseModel {
   KycResponseModel({String? remark, String? status, List<String>? message, Data? data}) {
@@ -67,9 +67,7 @@ class Form {
       }
       _list;
     } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
+      printX(e.toString());
     }
   }
 }

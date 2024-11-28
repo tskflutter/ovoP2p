@@ -167,7 +167,7 @@ class _NewTicketScreenState extends State<NewTicketScreen> {
                           radius: Dimensions.space8,
                           bgColor: MyColor.getPrimaryColor(),
                           text: MyStrings.submit.tr,
-                          press: () {
+                          onTap: () {
                             controller.submit();
                           },
                         ),

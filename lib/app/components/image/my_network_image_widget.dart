@@ -1,12 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ovolutter/app/screens/edit_profile/widget/profile_image.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/dimensions.dart';
 import '../../../core/utils/my_color.dart';
 
-class MyImageWidget extends StatelessWidget {
+class MyNetworkImageWidget extends StatelessWidget {
   final String imageUrl;
   final double? height;
   final double? width;
@@ -14,7 +13,7 @@ class MyImageWidget extends StatelessWidget {
   final BoxFit boxFit;
   final bool isProfile;
   final Color? color;
-  const MyImageWidget({
+  const MyNetworkImageWidget({
     super.key,
     required this.imageUrl,
     this.height = 80,
@@ -27,7 +26,6 @@ class MyImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     return CachedNetworkImage(
       imageUrl: imageUrl.toString(),
       color: color,
@@ -59,17 +57,27 @@ class MyImageWidget extends StatelessWidget {
       errorWidget: (context, url, error) => SizedBox(
         height: height,
         width: width,
-        child: isProfile
-            ? ProfileWidget(imagePath: '', onClicked: () {})
-            : ClipRRect(
-                borderRadius: BorderRadius.circular(radius),
-                child: Center(
-                  child: Icon(
-                    Icons.image,
-                    color: MyColor.getBorderColor().withOpacity(0.5),
-                  ),
-                ),
-              ),
+        child: FittedBox(
+            fit: boxFit,
+            child: isProfile
+                ? ClipRRect(
+                    borderRadius: BorderRadius.circular(radius),
+                    child: Center(
+                      child: Icon(
+                        Icons.person,
+                        color: MyColor.black,
+                      ),
+                    ),
+                  )
+                : ClipRRect(
+                    borderRadius: BorderRadius.circular(radius),
+                    child: Center(
+                      child: Icon(
+                        Icons.image,
+                        color: MyColor.getBodyTextColor(),
+                      ),
+                    ),
+                  )),
       ),
     );
   }

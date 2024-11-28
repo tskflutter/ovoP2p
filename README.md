@@ -65,3 +65,38 @@
     <true/>
 
 ## Check url_launcher Platform Specific Configuration
+
+
+# Typography Specification
+
+This document outlines the typography styles used in the project. Each typography style is defined by its **name**, **size**, **weight**, and **spacing**.
+
+## Typography Table
+
+| **Name**          | **Size** | **Weight** | **Spacing** |
+|-------------------|----------|------------|-------------|
+| `displayLarge`    | 57.0     | w600       | -1.5        |
+| `displayMedium`   | 45.0     | w600       | -0.5        |
+| `displaySmall`    | 36.0     | w400       | 0.0         |
+| `headlineLarge`   | 24.0     | w600       | 0.25        |
+| `headlineMedium`  | 20.0     | w600       | 0.25        |
+| `headlineSmall`   | 17.0     | w600       | 0.0         |
+| `titleLarge`      | 22.0     | w600       | 0.15        |
+| `titleMedium`     | 18.0     | w600       | 0.15        |
+| `titleSmall`      | 14.0     | w600       | 0.1         |
+| `bodyLarge`       | 16.0     | w400       | 0.5         |
+| `bodyMedium`      | 13.0     | w400       | 0.25        |
+| `bodySmall`       | 11.0     | w400       | 0.4         |
+| `labelLarge`      | 16.0     | w400       | 1.25        |
+| `labelMedium`     | 14.0     | w400       | 1.25        |
+| `labelSmall`      | 12.0     | w400       | 1.5         |
+
+## Definitions
+
+- **Size**: The font size in points (pt).
+- **Weight**: The font weight, indicating the boldness of the text (e.g., `light`, `regular`, `medium`).
+- **Spacing**: The letter spacing in points (pt).
+
+---
+
+Feel free to use these styles to ensure consistency across your application.

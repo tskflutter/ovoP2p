@@ -130,7 +130,7 @@ class _NewDepositScreenState extends State<NewDepositScreen> {
                         CustomElevatedBtn(
                           isLoading: controller.submitLoading,
                           text: MyStrings.submit,
-                          press: () {
+                          onTap: () {
                             controller.submitDeposit();
                           },
                         ),

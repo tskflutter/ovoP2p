@@ -154,7 +154,7 @@ class _AddWithdrawMethodState extends State<AddWithdrawMethod> {
                         CustomElevatedBtn(
                           isLoading: controller.submitLoading,
                           text: MyStrings.submit,
-                          press: () {
+                          onTap: () {
                             controller.submitWithdrawRequest();
                           },
                         ),

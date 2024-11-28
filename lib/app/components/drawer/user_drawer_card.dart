@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
 import 'package:ovolutter/core/utils/style.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
 import 'package:get/get.dart';
 
 class DrawerUserCard extends StatelessWidget {
@@ -33,7 +33,7 @@ class DrawerUserCard extends StatelessWidget {
   });
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return SizedBox(
       width: double.infinity,
@@ -46,7 +46,7 @@ class DrawerUserCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 imgWidget == null
-                    ? MyImageWidget(
+                    ? MyNetworkImageWidget(
                         imageUrl: image.toString(),
                         isProfile: true,
                         height: imgHeight,

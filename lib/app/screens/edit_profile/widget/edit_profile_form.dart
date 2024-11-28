@@ -43,7 +43,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
               const SizedBox(height: Dimensions.space30),
               CustomElevatedBtn(
                 isLoading: controller.isSubmitLoading,
-                press: () {
+                onTap: () {
                   controller.updateProfile();
                 },
                 text: MyStrings.updateProfile.tr,

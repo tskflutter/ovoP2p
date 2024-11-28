@@ -11,7 +11,7 @@ import 'package:ovolutter/data/controller/auth/auth/registration_controller.dart
 import 'package:ovolutter/app/components/bottom-sheet/bottom_sheet_header_row.dart';
 import 'package:ovolutter/app/components/bottom-sheet/custom_bottom_sheet.dart';
 import 'package:ovolutter/app/components/card/bottom_sheet_card.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+
 import 'package:ovolutter/app/components/text-field/label_text_field.dart';
 import 'package:get/get.dart';
 
@@ -103,7 +103,7 @@ class CountryBottomSheet {
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.only(end: Dimensions.space10),
-                                  child: MyImageWidget(
+                                  child: MyNetworkImageWidget(
                                     imageUrl: UrlContainer.countryFlagImageLink.replaceAll("{countryCode}", countryItem.countryCode.toString().toLowerCase()),
                                     height: Dimensions.space25,
                                     width: Dimensions.space40 + 2,

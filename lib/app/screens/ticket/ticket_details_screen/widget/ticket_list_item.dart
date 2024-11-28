@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/helper/date_converter.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
@@ -10,7 +11,7 @@ import 'package:ovolutter/core/utils/url_container.dart';
 import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/data/controller/support/ticket_details_controller.dart';
 import 'package:ovolutter/app/components/image/custom_svg_picture.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
@@ -154,7 +155,7 @@ class TicketListItem extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
                               ),
                               child: MyUtils.isImage(messages.attachments?[i].attachment.toString() ?? "")
-                                  ? MyImageWidget(
+                                  ? MyNetworkImageWidget(
                                 imageUrl: "${UrlContainer.supportImagePath}${messages.attachments?[i].attachment}",
                                 width: MediaQuery.of(context).size.width > 500 ? 100 : 100,
                                 height: MediaQuery.of(context).size.width > 500 ? 100 : 100,

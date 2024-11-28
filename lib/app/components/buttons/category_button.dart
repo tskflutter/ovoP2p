@@ -7,7 +7,7 @@ import 'package:ovolutter/core/utils/style.dart';
 class CategoryButton extends StatelessWidget {
 
   final String text;
-  final VoidCallback press;
+  final VoidCallback onTap;
   final Color color, textColor;
   final double horizontalPadding;
   final double verticalPadding;
@@ -19,7 +19,7 @@ class CategoryButton extends StatelessWidget {
     this.horizontalPadding=3,
     this.verticalPadding=3,
     this.textSize= Dimensions.fontSmall,
-    required this.press,
+    required this.onTap,
     this.color = MyColor.black,
     this.textColor = MyColor.white,
   }) ;
@@ -31,7 +31,7 @@ class CategoryButton extends StatelessWidget {
       color: color,
       borderRadius: BorderRadius.circular(4),
       child: InkWell(
-        onTap: press,
+        onTap: onTap,
         borderRadius: BorderRadius.circular(4),
         child:  Container(
           padding:  EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),

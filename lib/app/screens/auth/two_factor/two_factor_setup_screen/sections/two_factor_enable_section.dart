@@ -116,7 +116,7 @@ class TwoFactorEnableSection extends StatelessWidget {
                     const SizedBox(height: Dimensions.space30),
                     CustomElevatedBtn(
                       isLoading: twoFactorController.submitLoading,
-                      press: () {
+                      onTap: () {
                         twoFactorController.enable2fa(twoFactorController.twoFactorCodeModel.data?.secret ?? '', twoFactorController.currentText);
                       },
                       text: MyStrings.submit.tr,

@@ -9,7 +9,7 @@ class FilterRowWidget extends StatefulWidget {
   final String text;
   final bool fromTrx;
   final Color iconColor;
-  final Callback press;
+  final Callback onTap;
   final bool isFilterBtn;
   final Color bgColor;
 
@@ -19,7 +19,7 @@ class FilterRowWidget extends StatefulWidget {
     this.isFilterBtn=false,
     this.iconColor = MyColor.black,
     required this.text,
-    required this.press,
+    required this.onTap,
     this.fromTrx=false
   });
 
@@ -32,7 +32,7 @@ class _FilterRowWidgetState extends State<FilterRowWidget> {
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return InkWell(
-      onTap:widget.press,
+      onTap:widget.onTap,
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),

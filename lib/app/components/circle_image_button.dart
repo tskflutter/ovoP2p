@@ -9,7 +9,7 @@ class CircleImageWidget extends StatelessWidget {
   final double width;
   final String imagePath;
   final bool isAsset;
-  final VoidCallback? press;
+  final VoidCallback? onTap;
   final double border;
   final bool isProfile;
 
@@ -21,14 +21,14 @@ class CircleImageWidget extends StatelessWidget {
     this.width=30,
     this.isAsset=true,
     required this.imagePath,
-    this.press
+    this.onTap
   });
 
   @override
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GestureDetector(
-      onTap: press,
+      onTap: onTap,
       child: border>0?ClipOval(
         child: Container(
           decoration: BoxDecoration(

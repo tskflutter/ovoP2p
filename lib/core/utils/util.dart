@@ -157,7 +157,7 @@ class MyUtils {
         throw Exception('Could not launch $url');
       }
     } catch (e) {
-      print(e.toString());
+      printX(e.toString());
     }
   }
 

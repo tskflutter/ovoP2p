@@ -87,7 +87,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     Text(MyStrings.alreadyAccount.tr, style: regularLarge.copyWith(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500)),
                     const SizedBox(width: Dimensions.space5),
                     CustomTextButton(
-                      press: () {
+                      onTap: () {
                         controller.clearAllData();
                         Get.offAndToNamed(RouteHelper.loginScreen);
                       },

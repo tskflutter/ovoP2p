@@ -107,7 +107,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 )
               : CircleImageWidget(
-                  press: () {},
+                  onTap: () {},
                   isAsset: isAsset,
                   imagePath: isAsset ? MyImages.profile : widget.imagePath,
                   height: 100,

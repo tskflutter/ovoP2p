@@ -8,60 +8,61 @@ import 'my_styles.dart';
 class MyTheme {
   static getThemeData({required bool isLight}) {
     return ThemeData(
-        // main color (app bar,tabs..etc)
-        primaryColor: isLight ? LightThemeColors.primaryColor : DarkThemeColors.primaryColor,
+      // main color (app bar,tabs..etc)
+      primaryColor: isLight ? LightThemeColors.primaryColor : DarkThemeColors.primaryColor,
 
-        // secondary & background color
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: isLight ? LightThemeColors.accentColor : DarkThemeColors.accentColor,
-          backgroundColor: isLight ? LightThemeColors.backgroundColor : DarkThemeColors.backgroundColor,
-          brightness: isLight ? Brightness.light : Brightness.dark,
-        ).copyWith(
-          secondary: isLight ? LightThemeColors.accentColor : DarkThemeColors.accentColor,
-        ),
-
-        // color contrast (if the theme is dark text should be white for example)
+      // secondary & background color
+      colorScheme: ColorScheme.fromSwatch(
+        accentColor: isLight ? LightThemeColors.accentColor : DarkThemeColors.accentColor,
+        backgroundColor: isLight ? LightThemeColors.backgroundColor : DarkThemeColors.backgroundColor,
         brightness: isLight ? Brightness.light : Brightness.dark,
+      ).copyWith(
+        secondary: isLight ? LightThemeColors.accentColor : DarkThemeColors.accentColor,
+      ),
 
-        // card widget background color
-        cardColor: isLight ? LightThemeColors.cardColor : DarkThemeColors.cardColor,
+      // color contrast (if the theme is dark text should be white for example)
+      brightness: isLight ? Brightness.light : Brightness.dark,
 
-        // hint text color
-        hintColor: isLight ? LightThemeColors.hintTextColor : DarkThemeColors.hintTextColor,
+      // card widget background color
+      cardColor: isLight ? LightThemeColors.cardColor : DarkThemeColors.cardColor,
 
-        // divider color
-        dividerColor: isLight ? LightThemeColors.dividerColor : DarkThemeColors.dividerColor,
+      // hint text color
+      hintColor: isLight ? LightThemeColors.hintTextColor : DarkThemeColors.hintTextColor,
 
-        // app background color
-        scaffoldBackgroundColor: isLight ? LightThemeColors.scaffoldBackgroundColor : DarkThemeColors.scaffoldBackgroundColor,
+      // divider color
+      dividerColor: isLight ? LightThemeColors.dividerColor : DarkThemeColors.dividerColor,
 
-        // progress bar theme
-        progressIndicatorTheme: ProgressIndicatorThemeData(
-          color: isLight ? LightThemeColors.primaryColor : DarkThemeColors.primaryColor,
-        ),
+      // app background color
+      scaffoldBackgroundColor: isLight ? LightThemeColors.scaffoldBackgroundColor : DarkThemeColors.scaffoldBackgroundColor,
 
-        // appBar theme
-        appBarTheme: MyStyles.getAppBarTheme(isLightTheme: isLight),
+      // progress bar theme
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: isLight ? LightThemeColors.primaryColor : DarkThemeColors.primaryColor,
+      ),
 
-        // elevated button theme
-        elevatedButtonTheme: MyStyles.getElevatedButtonTheme(isLightTheme: isLight),
+      // appBar theme
+      appBarTheme: MyStyles.getAppBarTheme(isLightTheme: isLight),
 
-        // text theme
-        textTheme: MyStyles.getTextTheme(isLightTheme: isLight),
+      // elevated button theme
+      elevatedButtonTheme: MyStyles.getElevatedButtonTheme(isLightTheme: isLight),
 
-        // chip theme
-        chipTheme: MyStyles.getChipTheme(isLightTheme: isLight),
+      // text theme
+      textTheme: MyStyles.getTextTheme(isLightTheme: isLight),
 
-        // icon theme
-        iconTheme: MyStyles.getIconTheme(isLightTheme: isLight),
+      // chip theme
+      chipTheme: MyStyles.getChipTheme(isLightTheme: isLight),
 
-        // list tile theme
-        listTileTheme: MyStyles.getListTileThemeData(isLightTheme: isLight),
-        bottomNavigationBarTheme: MyStyles.getBottomNavBarThemeData(isLightTheme: isLight),
-        // custom themes
-        extensions: [
-          MyStyles.getHeaderContainerTheme(isLightTheme: isLight),
-        ]);
+      // icon theme
+      iconTheme: MyStyles.getIconTheme(isLightTheme: isLight),
+
+      // list tile theme
+      listTileTheme: MyStyles.getListTileThemeData(isLightTheme: isLight),
+      bottomNavigationBarTheme: MyStyles.getBottomNavBarThemeData(isLightTheme: isLight),
+      // custom themes
+      extensions: [
+        MyStyles.getHeaderContainerTheme(isLightTheme: isLight),
+      ],
+    );
   }
 
   /// update app theme and save theme type to shared pref

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
+
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../core/route/route.dart';
@@ -57,7 +58,7 @@ PreferredSize homeScreenAppBar(BuildContext context, HomeController controller, 
                     child: ClipOval(
                       child: controller.imagePath == "null" || controller.imagePath == ""
                           ? ProfileWidget(imagePath: "", onClicked: () {})
-                          : MyImageWidget(
+                          : MyNetworkImageWidget(
                               imageUrl: controller.imagePath,
                               boxFit: BoxFit.cover,
                             ),

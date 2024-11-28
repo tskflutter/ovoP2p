@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
+import 'package:ovolutter/core/utils/util.dart';
 
 
 
@@ -296,7 +297,7 @@ class Gateway {
         });
       }catch(e){
        if(kDebugMode){
-         print(e.toString());
+         printX(e.toString());
        }
       }
 

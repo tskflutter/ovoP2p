@@ -127,7 +127,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   CustomElevatedBtn(
                     isLoading: controller.submitLoading,
                     text: MyStrings.submit.tr,
-                    press: () {
+                    onTap: () {
                       if (formKey.currentState!.validate()) {
                         controller.resetPassword();
                       }

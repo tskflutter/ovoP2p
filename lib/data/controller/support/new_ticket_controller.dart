@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/model/support/new_ticket_store_model.dart';
@@ -79,7 +80,7 @@ class NewTicketController extends GetxController {
 
   bool isImage(String path) {
     if (path.contains('.jpg')) {
-      print("its image");
+      printX("its image");
       return true;
     }
     if (path.contains('.png')) {

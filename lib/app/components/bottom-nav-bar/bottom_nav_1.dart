@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/bottom-nav-bar/custom_bottom_nav.dart';
+import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
@@ -40,41 +41,45 @@ class _BottomNavBarState extends State<BottomNavBar> {
     setState(() {});
   }
 
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-   screens = [HomeScreen(bottomNavScaffoldKey: _scaffoldKey), const TransactionsScreen(), const WithdrawScreen(), const MenuScreen()];
+    screens = [HomeScreen(bottomNavScaffoldKey: _scaffoldKey), const TransactionsScreen(), const WithdrawScreen(), const MenuScreen()];
   }
-  @override
-    Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    return Scaffold(
-        key: _scaffoldKey,
-        extendBody: true,
-        drawer: HomeDrawer(
-          key: widget.key,
-        ),
-        body: screens[currentIndex],
-        bottomNavigationBar: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: CutomBttomNavBarWidget(
-            items: items,
-            onChange: changeScreen,
-            bottomNavStyle: BOTTOMNAVSTYLE.STYLE1,
-            radius: 50,
-            // boxShadow: const [],
-            bottomNavBGColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-            iconColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
-            selectedIconColor: MyColor.getPrimaryColor(),
-            selectedItemBGColor: MyColor.getPrimaryColor().withOpacity(0.1),
 
-            showDot: false,
-            // radius: Dimensions.mediumRadius,
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return WillPopWidget(
+      child: Scaffold(
+          key: _scaffoldKey,
+          extendBody: true,
+          drawer: HomeDrawer(
+            key: widget.key,
           ),
-        ));
+          body: screens[currentIndex],
+          bottomNavigationBar: SingleChildScrollView(
+            physics: const ClampingScrollPhysics(),
+            child: CutomBttomNavBarWidget(
+              items: items,
+              onChange: changeScreen,
+              bottomNavStyle: BOTTOMNAVSTYLE.STYLE1,
+              radius: 50,
+              // boxShadow: const [],
+              bottomNavBGColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+              iconColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+              selectedIconColor: MyColor.getPrimaryColor(),
+              selectedItemBGColor: MyColor.getPrimaryColor().withOpacity(0.1),
+
+              showDot: false,
+              // radius: Dimensions.mediumRadius,
+            ),
+          )),
+    );
   }
 }
+
 class CutomBttomNavBarWidget extends StatefulWidget {
   List<BottomNavItemModel> items;
   Function onChange;
@@ -111,15 +116,14 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
   int currentIndex = 0;
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     if (widget.bottomNavStyle == BOTTOMNAVSTYLE.STYLE1) {
       return styleOne(context);
     }
     if (widget.bottomNavStyle == BOTTOMNAVSTYLE.STYLE2) {
       return styleTwo(context);
-    }
-     else {
+    } else {
       return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(vertical: Dimensions.space15),
@@ -136,7 +140,6 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
             (index) => InkWell(
               onTap: () {
                 setState(() {
-                  print("tap $currentIndex ");
                   currentIndex = widget.items[index].index;
                   widget.onChange(currentIndex);
                 });
@@ -188,7 +191,6 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
       );
     }
   }
-
 
   Container styleTwo(BuildContext context) {
     return Container(
@@ -280,8 +282,8 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: widget.bottomNavBGColor ?? Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-       // borderRadius: BorderRadius.circular(widget.radius),
-        boxShadow: widget.boxShadow ?? [ BoxShadow(color: MyColor.getBorderColor(), offset: Offset(-2, -2), blurRadius: 2)],
+        // borderRadius: BorderRadius.circular(widget.radius),
+        boxShadow: widget.boxShadow ?? [BoxShadow(color: MyColor.getBorderColor(), offset: Offset(-2, -2), blurRadius: 2)],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -290,7 +292,6 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
           widget.items.length,
           (index) => InkWell(
             onTap: () {
-              print("tap");
               currentIndex = widget.items[index].index;
               setState(() {});
               widget.onChange(currentIndex);
@@ -343,4 +344,3 @@ class _CustomBottomNavBarWidgetState extends State<CutomBttomNavBarWidget> {
     );
   }
 }
-

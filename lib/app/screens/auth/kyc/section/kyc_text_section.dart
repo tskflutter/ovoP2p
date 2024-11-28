@@ -20,7 +20,7 @@ class KycTextAnEmailSection extends StatelessWidget {
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     bool isRequired = model.isRequired == 'optional' ? false : true;
-    print(isRequired);
+    printX(isRequired);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/translations/localization_controller.dart';
-import 'package:ovolutter/core/utils/messages.dart';
-import 'package:ovolutter/core/utils/url_container.dart';
 
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/model/language/language_model.dart';
@@ -13,6 +11,8 @@ import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
 import 'package:ovolutter/data/services/shared_pref_service.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
+
+import '../../../core/utils/util_exporter.dart';
 
 class MyLanguageController extends GetxController {
   GeneralSettingRepo repo;
@@ -41,7 +41,7 @@ class MyLanguageController extends GetxController {
     String languageCode = SharedPreferenceService.getString(SharedPreferenceService.languageCode, defaultValue: 'en');
 
     if (kDebugMode) {
-      print('current lang code: $languageCode');
+      printX('current lang code: $languageCode');
     }
 
     if (langList.isNotEmpty) {
@@ -89,7 +89,7 @@ class MyLanguageController extends GetxController {
         CustomSnackBar.error(errorList: [response.message]);
       }
     } catch (e) {
-      print(e.toString());
+      printX(e.toString());
     }
 
     isChangeLangLoading = false;

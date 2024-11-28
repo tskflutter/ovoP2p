@@ -1,84 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-TextStyle mulishSmall = GoogleFonts.mulish(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontSmall);
+const String fontName = "AlbertSans";
 
-TextStyle mulishExtraSmall = GoogleFonts.mulish(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraSmall);
+TextStyle lightSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontSmall);
 
-TextStyle mulishDefault = GoogleFonts.mulish(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraSmall);
+TextStyle lightDefault = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontDefault);
 
-TextStyle mulishMedium = GoogleFonts.mulish(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraSmall);
+TextStyle lightLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontLarge);
 
-TextStyle lightSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontSmall);
+TextStyle lightMediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle lightDefault = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontDefault);
+TextStyle lightExtraLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle lightLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontLarge);
+TextStyle lightOverLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontOverLarge);
 
-TextStyle lightMediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraLarge);
+TextStyle regularExtraSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraSmall);
 
-TextStyle lightExtraLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontExtraLarge);
+const TextStyle regularSmall = TextStyle(fontFamily: fontName, color: MyColor.black, fontWeight: FontWeight.w400, fontSize: Dimensions.fontSmall);
 
-TextStyle lightOverLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w300, fontSize: Dimensions.fontOverLarge);
+TextStyle dateTextStyle = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontStyle: FontStyle.italic, fontSize: Dimensions.fontSmall);
 
-TextStyle regularExtraSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraSmall);
+const TextStyle regularDefault = TextStyle(fontFamily: fontName, color: MyColor.black, fontWeight: FontWeight.w400, fontSize: Dimensions.fontDefault);
 
-const TextStyle regularSmall = TextStyle(fontFamily: 'Inter', color: MyColor.black, fontWeight: FontWeight.w400, fontSize: Dimensions.fontSmall);
+TextStyle regularLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontLarge);
 
-TextStyle dateTextStyle = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontStyle: FontStyle.italic, fontSize: Dimensions.fontSmall);
+TextStyle regularMediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraLarge);
 
-const TextStyle regularDefault = TextStyle(fontFamily: 'Inter', color: MyColor.black, fontWeight: FontWeight.w400, fontSize: Dimensions.fontDefault);
+TextStyle regularExtraLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle regularLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontLarge);
+TextStyle regularOverLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontOverLarge);
 
-TextStyle regularMediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraLarge);
+TextStyle mediumExtraSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraSmall);
 
-TextStyle regularExtraLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontExtraLarge);
+TextStyle mediumSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontSmall);
 
-TextStyle regularOverLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w400, fontSize: Dimensions.fontOverLarge);
+TextStyle mediumDefault = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontDefault);
 
-TextStyle mediumExtraSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraSmall);
+TextStyle mediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontLarge);
 
-TextStyle mediumSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontSmall);
+TextStyle mediumMediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle mediumDefault = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontDefault);
+TextStyle mediumExtraLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle mediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontLarge);
+TextStyle mediumOverLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontOverLarge);
 
-TextStyle mediumMediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraLarge);
+TextStyle semiBoldExtraSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraSmall);
 
-TextStyle mediumExtraLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontExtraLarge);
+TextStyle semiBoldSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontSmall);
 
-TextStyle mediumOverLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500, fontSize: Dimensions.fontOverLarge);
+TextStyle semiBoldDefault = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontDefault);
 
-TextStyle semiBoldExtraSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraSmall);
+TextStyle semiBoldLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontLarge);
 
-TextStyle semiBoldSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontSmall);
+TextStyle semiBoldMediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle semiBoldDefault = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontDefault);
+TextStyle semiBoldExtraLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle semiBoldLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontLarge);
+const TextStyle semiBoldOverLarge = TextStyle(fontFamily: fontName, color: MyColor.black, fontWeight: FontWeight.w600, fontSize: Dimensions.fontOverLarge);
 
-TextStyle semiBoldMediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraLarge);
+TextStyle boldExtraSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraSmall);
 
-TextStyle semiBoldExtraLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w600, fontSize: Dimensions.fontExtraLarge);
+TextStyle boldSmall = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontSmall);
 
-const TextStyle semiBoldOverLarge = TextStyle(fontFamily: 'Inter', color: MyColor.black, fontWeight: FontWeight.w600, fontSize: Dimensions.fontOverLarge);
+TextStyle boldDefault = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontDefault);
 
-TextStyle boldExtraSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraSmall);
+TextStyle boldLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontLarge);
 
-TextStyle boldSmall = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontSmall);
+TextStyle boldMediumLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle boldDefault = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontDefault);
+TextStyle boldExtraLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraLarge);
 
-TextStyle boldLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontLarge);
+TextStyle boldOverLarge = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontOverLarge);
 
-TextStyle boldMediumLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraLarge);
-
-TextStyle boldExtraLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontExtraLarge);
-
-TextStyle boldOverLarge = TextStyle(fontFamily: 'Inter', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontOverLarge);
-
-TextStyle title = TextStyle(fontFamily: 'Vogue', color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontOverLarge, letterSpacing: .9);
+TextStyle title = TextStyle(fontFamily: fontName, color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w700, fontSize: Dimensions.fontOverLarge, letterSpacing: .9);

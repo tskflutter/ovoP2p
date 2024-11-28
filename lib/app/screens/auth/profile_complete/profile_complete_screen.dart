@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
@@ -12,7 +13,6 @@ import 'package:ovolutter/app/components/will_pop_widget.dart';
 import 'package:ovolutter/app/screens/auth/profile_complete/widget/country_bottom_sheet.dart';
 import 'package:get/get.dart';
 import '../../../../core/utils/url_container.dart';
-import '../../../components/image/my_image_widget.dart';
 
 class ProfileCompleteScreen extends StatefulWidget {
   const ProfileCompleteScreen({super.key});
@@ -116,7 +116,7 @@ class _ProfileCompleteScreenState extends State<ProfileCompleteScreen> {
                                   alignment: Alignment.center,
                                   child: Row(
                                     children: [
-                                      MyImageWidget(
+                                      MyNetworkImageWidget(
                                         imageUrl: UrlContainer.countryFlagImageLink.replaceAll('{countryCode}', controller.countryCode.toString().toLowerCase()),
                                         height: Dimensions.space25,
                                         width: Dimensions.space40 + 2,
@@ -233,7 +233,7 @@ class _ProfileCompleteScreenState extends State<ProfileCompleteScreen> {
                     CustomElevatedBtn(
                       isLoading: controller.submitLoading,
                       text: MyStrings.updateProfile.tr,
-                      press: () {
+                      onTap: () {
                         if (formKey.currentState!.validate()) {
                           controller.profileCompleteSubmit();
                         }

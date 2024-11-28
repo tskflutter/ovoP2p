@@ -78,7 +78,7 @@ class TwoFactorDisableSection extends StatelessWidget {
                 const SizedBox(height: Dimensions.space30),
                 CustomElevatedBtn(
                   isLoading: twoFactorController.submitLoading,
-                  press: () {
+                  onTap: () {
                     twoFactorController.disable2fa(twoFactorController.currentText);
                   },
                   text: MyStrings.submit.tr,

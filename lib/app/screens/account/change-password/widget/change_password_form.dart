@@ -84,7 +84,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                   CustomElevatedBtn(
                       text: MyStrings.submit,
                       isLoading: controller.submitLoading,
-                      press: () {
+                      onTap: () {
                         if (formKey.currentState!.validate()) {
                           controller.changePassword();
                         }

@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
@@ -77,7 +78,7 @@ class DownloadingDialogState extends State<DownloadingDialog> {
       }
     } catch(e){
       if(kDebugMode){
-        print(e.toString());
+        printX(e.toString());
       }
       Get.back();
       CustomSnackBar.error(errorList: [MyStrings.requestFail]);

@@ -7,7 +7,7 @@ import 'circle_image_button.dart';
 
 class CircleButtonWithIcon extends StatelessWidget {
   final IconData icon;
-  final Callback press;
+  final Callback onTap;
   final double padding;
   final String imagePath;
   final Color bg;
@@ -22,14 +22,14 @@ class CircleButtonWithIcon extends StatelessWidget {
   final bool isShowBorder;
   final bool isProfile;
 
-  const CircleButtonWithIcon({super.key, this.imagePath = '', this.isAsset = false, this.circleSize = 30, this.imageSize = 20, this.isSvg = false, this.isShowBorder = false, this.isIcon = true, this.bg = Colors.transparent, this.padding = 5, required this.press, this.iconColor = MyColor.white, this.iconSize = 20, this.isProfile = false, this.borderColor, this.icon = Icons.clear});
+  const CircleButtonWithIcon({super.key, this.imagePath = '', this.isAsset = false, this.circleSize = 30, this.imageSize = 20, this.isSvg = false, this.isShowBorder = false, this.isIcon = true, this.bg = Colors.transparent, this.padding = 5, required this.onTap, this.iconColor = MyColor.white, this.iconSize = 20, this.isProfile = false, this.borderColor, this.icon = Icons.clear});
 
   @override
     Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return isIcon
         ? GestureDetector(
-            onTap: press,
+            onTap: onTap,
             child: Container(
               padding: EdgeInsets.all(padding),
               alignment: Alignment.center,
@@ -49,7 +49,7 @@ class CircleButtonWithIcon extends StatelessWidget {
             ),
           )
         : GestureDetector(
-            onTap: press,
+            onTap: onTap,
             child: Container(
               height: circleSize,
               width: circleSize,

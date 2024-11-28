@@ -43,7 +43,7 @@ class _ProfileTopSectionState extends State<ProfileTopSection> {
                   isAsset: false,
                   imagePath: controller.imageUrl,
                   isProfile: true,
-                  press: () {},
+                  onTap: () {},
                 ),
                 GestureDetector(
                   onTap: () => Get.toNamed(RouteHelper.editProfileScreen),

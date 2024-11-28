@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ovolutter/core/utils/util_exporter.dart';
 
 import 'dark_theme_colors.dart';
@@ -24,7 +23,7 @@ class MyStyles {
   ///app bar theme
   static AppBarTheme getAppBarTheme({required bool isLightTheme}) => AppBarTheme(
         elevation: 0,
-        titleTextStyle: getTextTheme(isLightTheme: isLightTheme).bodyMedium!.copyWith(
+        titleTextStyle: getTextTheme(isLightTheme: isLightTheme).titleLarge!.copyWith(
               color: MyColor.getHeadingTextColor(isLightTheme: isLightTheme),
               fontSize: MyFonts.appBarTittleSize,
             ),
@@ -35,73 +34,78 @@ class MyStyles {
   ///text theme
   static TextTheme getTextTheme({required bool isLightTheme}) {
     return TextTheme(
+      bodyLarge: (MyFonts.bodyTextStyle).copyWith(
+        fontWeight: FontWeight.w400,
+        fontSize: MyFonts.bodyLargeSize,
+        color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
+      ),
+      bodyMedium: (MyFonts.bodyTextStyle).copyWith(
+        fontSize: MyFonts.bodyMediumSize,
+        fontWeight: FontWeight.w400,
+        color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
+      ),
+      bodySmall: TextStyle(
+        fontWeight: FontWeight.w400,
+        color: isLightTheme ? LightThemeColors.bodySmallTextColor : DarkThemeColors.bodySmallTextColor,
+        fontSize: MyFonts.bodySmallTextSize,
+      ),
       labelLarge: MyFonts.buttonTextStyle.copyWith(
+        fontWeight: FontWeight.w400,
         fontSize: MyFonts.labelLargeSize,
       ),
       labelMedium: (MyFonts.bodyTextStyle).copyWith(
+        fontWeight: FontWeight.w400,
         fontSize: MyFonts.labelMediumSize,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       labelSmall: TextStyle(
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
         fontSize: MyFonts.labelSmallSize,
-      ),
-      bodyLarge: (MyFonts.bodyTextStyle).copyWith(
-        fontWeight: FontWeight.bold,
-        fontSize: MyFonts.bodyLargeSize,
-        color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
-      ),
-      bodyMedium: (MyFonts.bodyTextStyle).copyWith(
-        fontSize: MyFonts.bodyMediumSize,
-        color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
-      ),
-      bodySmall: TextStyle(
-        color: isLightTheme ? LightThemeColors.bodySmallTextColor : DarkThemeColors.bodySmallTextColor,
-        fontSize: MyFonts.bodySmallTextSize,
+        fontWeight: FontWeight.w400,
       ),
       titleLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleLargeSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       titleMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleMediumSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       titleSmall: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleSmallSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       headlineLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineLargeSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       headlineMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineMediumSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       headlineSmall: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineSmallSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       displayLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.displayLargeSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.displayTextColor : DarkThemeColors.displayTextColor,
       ),
       displayMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.displayMediumSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: isLightTheme ? LightThemeColors.displayTextColor : DarkThemeColors.displayTextColor,
       ),
       displaySmall: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.displaySmallSize,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w400,
         color: isLightTheme ? LightThemeColors.displayTextColor : DarkThemeColors.displayTextColor,
       ),
     );

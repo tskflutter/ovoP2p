@@ -76,7 +76,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             (index) => InkWell(
               onTap: () {
                 setState(() {
-                  print("tap $currentIndex ");
                   currentIndex = widget.items[index].index;
                   widget.onChange(currentIndex);
                 });

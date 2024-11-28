@@ -163,7 +163,7 @@ class ReplySection extends StatelessWidget {
                   // cornerRadius: Dimensions.space8,
                   // color: MyColor.black,
                   text: MyStrings.reply.tr,
-                  press: () {
+                  onTap: () {
                     controller.submitReply();
                   },
                 ),

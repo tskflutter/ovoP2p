@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+import 'package:ovolutter/app/components/annotated_region/annotated_region_widget.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
+
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
@@ -50,15 +51,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Theme.of(context).primaryColor,
-        statusBarIconBrightness: Brightness.light,
-        systemNavigationBarColor: Theme.of(context).primaryColor,
-        systemNavigationBarIconBrightness: Theme.of(context).brightness,
-      ),
+    return AnnotatedRegionWidget(
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarColor: MyColor.transparent,
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
         body: GetBuilder<LoginController>(
@@ -108,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: MyColor.getPrimaryColor(),
                               )
                             else
-                              MyImageWidget(
+                              MyNetworkImageWidget(
                                 imageUrl: SharedPreferenceService.getString(SharedPreferenceService.languageImagePath, defaultValue: ''),
                                 width: 20,
                                 height: 20,
@@ -229,7 +227,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomElevatedBtn(
                         isLoading: controller.isSubmitLoading,
                         text: MyStrings.signIn.tr,
-                        press: () {
+                        onTap: () {
                           if (formKey.currentState!.validate()) {
                             controller.loginUser();
                           }
@@ -245,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(MyStrings.doNotHaveAccount.tr, overflow: TextOverflow.ellipsis, style: regularDefault.copyWith(color: MyColor.getBodyTextColor(), fontWeight: FontWeight.w500)),
                           const SizedBox(width: Dimensions.space5),
                           CustomTextButton(
-                            press: () {
+                            onTap: () {
                               Get.offAndToNamed(RouteHelper.registrationScreen);
                             },
                             text: MyStrings.signUP.tr,

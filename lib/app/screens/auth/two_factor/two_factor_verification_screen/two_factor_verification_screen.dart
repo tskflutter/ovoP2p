@@ -114,7 +114,7 @@ class _TwoFactorVerificationScreenState extends State<TwoFactorVerificationScree
                         const SizedBox(height: Dimensions.space30),
                         CustomElevatedBtn(
                           isLoading: controller.submitLoading,
-                          press: () {
+                          onTap: () {
                             controller.verify2FACode(controller.currentText);
                           },
                           text: MyStrings.verify.tr,

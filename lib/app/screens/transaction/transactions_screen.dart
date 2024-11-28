@@ -105,7 +105,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                             fromTrx: true,
                                             bgColor: Colors.transparent,
                                             text: controller.selectedTrxType.isEmpty ? MyStrings.trxType : controller.selectedTrxType,
-                                            press: () {
+                                            onTap: () {
                                               showTrxBottomSheet(controller.transactionTypeList.map((e) => e.toString()).toList(), 1, MyStrings.selectTrxType, context: context);
                                             }),
                                       ),
@@ -126,7 +126,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                             fromTrx: true,
                                             bgColor: Colors.transparent,
                                             text: AppConverter.replaceUnderscoreWithSpace(controller.selectedRemark.isEmpty ? MyStrings.any : controller.selectedRemark),
-                                            press: () {
+                                            onTap: () {
                                               showTrxBottomSheet(controller.remarksList.map((e) => e.remark.toString()).toList(), 2, MyStrings.selectRemarks, context: context);
                                             }
                                           ),

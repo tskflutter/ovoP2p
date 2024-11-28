@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 
+import '../../../core/utils/util_exporter.dart';
+
 
 
 class WithdrawConfirmResponseModel {
@@ -169,7 +171,7 @@ class FormData {
       }
     }catch(e){
       if (kDebugMode) {
-        print(e.toString());
+        printX(e.toString());
       }
     }
   }

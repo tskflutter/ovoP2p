@@ -47,21 +47,21 @@ class SocialLoginController extends GetxController {
     //TODO
     //   SocialiteCredentials linkedinCredential = repo.apiClient.getSocialCredentialsConfigData();
     //   String linkedinCredentialRedirectUrl = "${repo.apiClient.getSocialCredentialsRedirectUrl()}/linkedin";
-    //   print(linkedinCredentialRedirectUrl);
-    //   print(linkedinCredential.linkedin?.toJson());
+    //   printX(linkedinCredentialRedirectUrl);
+    //   printX(linkedinCredential.linkedin?.toJson());
     //   SignInWithLinkedIn.signIn(
     //     context,
     //     config: LinkedInConfig(clientId: linkedinCredential.linkedin?.clientId ?? '', clientSecret: linkedinCredential.linkedin?.clientSecret ?? '', scope: ['openid', 'profile', 'email'], redirectUrl: "$linkedinCredentialRedirectUrl"),
     //     onGetAuthToken: (data) {
-    //       print('Auth token data: ${data.toJson()}');
+    //       printX('Auth token data: ${data.toJson()}');
     //     },
     //     onGetUserProfile: (token, user) async {
-    //       print('${token.idToken}-');
-    //       print('LinkedIn User: ${user.toJson()}');
+    //       printX('${token.idToken}-');
+    //       printX('LinkedIn User: ${user.toJson()}');
     //       await socialLoginUser(provider: 'linkedin', accessToken: token.accessToken ?? '');
     //     },
     //     onSignInError: (error) {
-    //       print('Error on sign in: $error');
+    //       printX('Error on sign in: $error');
     //       CustomSnackBar.error(errorList: [error.description!] ?? [MyStrings.loginFailedTryAgain.tr]);
     //       isLinkedinLoading = false;
     //       update();

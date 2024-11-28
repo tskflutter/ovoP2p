@@ -4,6 +4,7 @@ import 'package:ovolutter/data/repo/home/home_repo.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/data/services/shared_pref_service.dart';
 
+import '../../../core/utils/util_exporter.dart';
 import '../../model/global/response_model/response_model.dart';
 import '../../model/profile/profile_response_model.dart';
 
@@ -95,7 +96,7 @@ class HomeController extends GetxController {
         } else {}
       } else {}
     } catch (e) {
-      print(e.toString());
+      printX(e.toString());
     }
   }
 }

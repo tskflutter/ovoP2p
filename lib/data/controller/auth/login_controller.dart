@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:ovolutter/data/model/user/user.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/core/route/route.dart';
-import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/model/auth/login/login_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/repo/auth/login_repo.dart';
@@ -157,7 +157,7 @@ class LoginController extends GetxController {
       }
       final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
-      print(googleAuth.accessToken);
+      printX(googleAuth.accessToken);
       await socialLoginUser(provider: 'google', accessToken: googleAuth.accessToken ?? '');
     } catch (e) {
       debugPrint(e.toString());
@@ -177,22 +177,22 @@ class LoginController extends GetxController {
       //TODO
       // SocialiteCredentials linkedinCredential = loginRepo.apiClient.getSocialCredentialsConfigData();
       // String linkedinCredentialRedirectUrl = "${loginRepo.apiClient.getSocialCredentialsRedirectUrl()}/linkedin";
-      // print(linkedinCredentialRedirectUrl);
-      // print(linkedinCredential.linkedin?.toJson());
+      // printX(linkedinCredentialRedirectUrl);
+      // printX(linkedinCredential.linkedin?.toJson());
       // SignInWithLinkedIn.signIn(
       //   context,
       //   config: LinkedInConfig(clientId: linkedinCredential.linkedin?.clientId ?? '', clientSecret: linkedinCredential.linkedin?.clientSecret ?? '', scope: ['openid', 'profile', 'email'], redirectUrl: "$linkedinCredentialRedirectUrl"),
       //   onGetAuthToken: (data) {
-      //     print('Auth token data: ${data.toJson()}');
+      //     printX('Auth token data: ${data.toJson()}');
       //   },
       //   onGetUserProfile: (token, user) async {
-      //     print('${token.idToken}-');
-      //     print('LinkedIn User: ${user.toJson()}');
+      //     printX('${token.idToken}-');
+      //     printX('LinkedIn User: ${user.toJson()}');
 
       //     await socialLoginUser(provider: 'linkedin', accessToken: token.accessToken ?? '');
       //   },
       //   onSignInError: (error) {
-      //     print('Error on sign in: $error');
+      //     printX('Error on sign in: $error');
       //     CustomSnackBar.error(errorList: [error.description!] ?? [MyStrings.loginFailedTryAgain.tr]);
       //     isLinkedinLoading = false;
       //     update();

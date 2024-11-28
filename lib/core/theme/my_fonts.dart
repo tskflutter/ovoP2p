@@ -37,11 +37,12 @@ class MyFonts {
   static double get bodySmallTextSize => 11.sp;
   static double get bodyMediumSize => 13.sp; // default font
   static double get bodyLargeSize => 16.sp;
+  static double get bodyLargeSize2 => 17.sp;
 
   // display font size
-  static double get displayLargeSize => 20.sp;
-  static double get displayMediumSize => 17.sp;
-  static double get displaySmallSize => 14.sp;
+  static double get displayLargeSize => 57.sp;
+  static double get displayMediumSize => 45.sp;
+  static double get displaySmallSize => 36.sp;
 
   // button font size
   static double get buttonTextSize => 16.sp;
@@ -53,7 +54,7 @@ class MyFonts {
 
   static double get headlineLargeSize => 24.sp;
   static double get headlineMediumSize => 20.sp;
-  static double get headlineSmallSize => 16.sp;
+  static double get headlineSmallSize => 17.sp;
 
   // ========== TITLE TEXT SIZES SECTION ==========
 
@@ -76,6 +77,4 @@ class MyFonts {
   static double get listTileSubtitleSize => 12.sp;
 
   // custom themes (extensions)
-  static double get employeeListItemNameSize => 13.sp;
-  static double get employeeListItemSubtitleSize => 13.sp;
 }

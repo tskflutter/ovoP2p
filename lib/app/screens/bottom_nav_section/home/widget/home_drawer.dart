@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/theme/my_theme.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
@@ -11,7 +12,7 @@ import 'package:ovolutter/app/components/advance_switch/custom_switch.dart';
 import 'package:ovolutter/app/components/divider/custom_divider.dart';
 import 'package:ovolutter/app/components/drawer/drawer_item.dart';
 import 'package:ovolutter/app/components/drawer/user_drawer_card.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+
 // ignore: unused_import
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
@@ -56,7 +57,7 @@ class HomeDrawer extends StatelessWidget {
                             height: 60,
                             width: 60,
                             child: const ClipOval(
-                              child: MyImageWidget(
+                              child: MyNetworkImageWidget(
                                 imageUrl: '',
                                 boxFit: BoxFit.cover,
                                 isProfile: true,

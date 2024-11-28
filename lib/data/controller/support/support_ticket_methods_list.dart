@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 
-import '../../../core/utils/my_strings.dart';
 import '../../model/global/response_model/response_model.dart';
 import '../../model/support/community_group_model.dart';
 import '../../model/support/support_methods_model.dart';
@@ -37,7 +37,7 @@ class SupportTicketMethodsController extends GetxController {
         CustomSnackBar.error(errorList: [responseModel.message]);
       }
     } catch (e) {
-      print(e.toString());
+      printX(e.toString());
     } finally {
       isLoading = false;
       update();
@@ -69,7 +69,7 @@ class SupportTicketMethodsController extends GetxController {
         CustomSnackBar.error(errorList: [responseModel.message]);
       }
     } catch (e) {
-      print(e.toString());
+      printX(e.toString());
     } finally {
       isLoading = false;
       update();

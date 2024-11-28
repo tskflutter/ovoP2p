@@ -86,7 +86,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   const SizedBox(height: Dimensions.space25),
                   CustomElevatedBtn(
                     isLoading: auth.submitLoading,
-                    press: () {
+                    onTap: () {
                       if (_formKey.currentState!.validate()) {
                         auth.submitForgetPassCode();
                       }

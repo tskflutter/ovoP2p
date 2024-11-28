@@ -5,6 +5,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/core/utils/util.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/utils/my_strings.dart';
@@ -77,7 +78,7 @@ class _MyWebViewWidgetState extends State<MyWebViewWidget> {
           },
           initialSettings: settings,
           onLoadStart: (controller, url) {
-            print('payment url: ${url.toString()}');
+            printX('payment url: ${url.toString()}');
             if (url.toString() == '${UrlContainer.domainUrl}/user/deposit/history') {
               Get.offAndToNamed(RouteHelper.depositsHistoryScreen);
               CustomSnackBar.success(successList: [MyStrings.requestSuccess.tr]);
@@ -132,7 +133,7 @@ class _MyWebViewWidgetState extends State<MyWebViewWidget> {
           },
           onConsoleMessage: (controller, consoleMessage) {
             if (kDebugMode) {
-              print(consoleMessage);
+              printX(consoleMessage);
             }
           },
         )

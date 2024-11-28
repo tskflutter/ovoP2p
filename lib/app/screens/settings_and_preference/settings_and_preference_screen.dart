@@ -78,7 +78,7 @@ class _SettingsAndPreferenceScreenState extends State<SettingsAndPreferenceScree
           child: CustomElevatedBtn(
             text: MyStrings.confirm.tr,
             isLoading: controller.isChangeLangLoading,
-            press: () {
+            onTap: () {
               controller.changeLanguage(controller.selectedIndex);
             },
           ),

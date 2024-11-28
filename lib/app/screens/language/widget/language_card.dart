@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+
 import 'package:get/get.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
@@ -30,7 +31,7 @@ class LanguageCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyImageWidget(
+              MyNetworkImageWidget(
                 imageUrl: imagePath,
                 boxFit: BoxFit.contain,
                 width: 50,

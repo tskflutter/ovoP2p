@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:get/get.dart';
-import '../../../../core/utils/dimensions.dart';
-import '../../../../core/utils/my_strings.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import '../../../../data/controller/withdraw/withdraw_confirm_controller.dart';
 import '../../../../data/model/withdraw/withdraw_request_response_model.dart';
 import '../../../../data/repo/account/profile_repo.dart';
@@ -217,7 +216,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                           textInputType: TextInputType.datetime,
                                                                           readOnly: true,
                                                                           validator: (value) {
-                                                                            print(model.isRequired);
+                                                                            printX(model.isRequired);
                                                                             if (model.isRequired != 'optional' && value.toString().isEmpty) {
                                                                               return '${model.name.toString().capitalizeFirst} ${MyStrings.isRequired}';
                                                                             } else {
@@ -228,7 +227,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                             controller.changeSelectedDateTimeValue(index, context);
                                                                           },
                                                                           onChanged: (value) {
-                                                                            print(value);
+                                                                            printX(value);
                                                                             controller.changeSelectedValue(value, index);
                                                                           }),
                                                                     ),
@@ -251,7 +250,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                               textInputType: TextInputType.datetime,
                                                                               readOnly: true,
                                                                               validator: (value) {
-                                                                                print(model.isRequired);
+                                                                                printX(model.isRequired);
                                                                                 if (model.isRequired != 'optional' && value.toString().isEmpty) {
                                                                                   return '${model.name.toString().capitalizeFirst} ${MyStrings.isRequired}';
                                                                                 } else {
@@ -262,7 +261,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                                 controller.changeSelectedDateOnlyValue(index, context);
                                                                               },
                                                                               onChanged: (value) {
-                                                                                print(value);
+                                                                                printX(value);
                                                                                 controller.changeSelectedValue(value, index);
                                                                               }),
                                                                         ),
@@ -285,7 +284,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                                   textInputType: TextInputType.datetime,
                                                                                   readOnly: true,
                                                                                   validator: (value) {
-                                                                                    print(model.isRequired);
+                                                                                    printX(model.isRequired);
                                                                                     if (model.isRequired != 'optional' && value.toString().isEmpty) {
                                                                                       return '${model.name.toString().capitalizeFirst} ${MyStrings.isRequired}';
                                                                                     } else {
@@ -296,7 +295,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                                                                                     controller.changeSelectedTimeOnlyValue(index, context);
                                                                                   },
                                                                                   onChanged: (value) {
-                                                                                    print(value);
+                                                                                    printX(value);
                                                                                     controller.changeSelectedValue(value, index);
                                                                                   }),
                                                                             ),
@@ -309,7 +308,7 @@ class _WithdrawConfirmScreenState extends State<WithdrawConfirmScreen> {
                         const SizedBox(height: Dimensions.space25),
                         CustomElevatedBtn(
                           isLoading: controller.submitLoading,
-                          press: () {
+                          onTap: () {
                             controller.submitConfirmWithdrawRequest();
                           },
                           text: MyStrings.submit.tr,

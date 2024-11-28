@@ -41,20 +41,20 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDty_ZTa_aTRiKCpXmJ3_kKQyMPHaRtBKY',
-    appId: '1:673830063591:android:c993c55fc142a1e7d0c142',
-    messagingSenderId: '673830063591',
-    projectId: 'ovolutter',
-    storageBucket: 'ovolutter.appspot.com',
+    apiKey: 'AIzaSyB7-rflEiRppMTpy6981o8uF4NxjfWAXOc',
+    appId: '1:20334561013:android:7105c73cfc4c9b896627bc',
+    messagingSenderId: '20334561013',
+    projectId: 'ovo-global',
+    storageBucket: 'ovo-global.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCVhtikLkz_kDoHyj_3PbxK-6u0-I_WBmk',
-    appId: '1:673830063591:ios:cddff74625310797d0c142',
-    messagingSenderId: '673830063591',
-    projectId: 'ovolutter',
-    storageBucket: 'ovolutter.appspot.com',
-    iosBundleId: 'com.example.ovolutter',
+    apiKey: 'AIzaSyCLsW8itdKur4L36x6pejfTFo-yPTCmiEY',
+    appId: '1:20334561013:ios:c63ae5a5ce303f296627bc',
+    messagingSenderId: '20334561013',
+    projectId: 'ovo-global',
+    storageBucket: 'ovo-global.firebasestorage.app',
+    iosBundleId: 'com.ovosolution.ovolutter',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

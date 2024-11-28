@@ -68,7 +68,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                                           verticalPadding: 7,
                                           textColor: controller.selectedIndex == index ? MyColor.white : MyColor.black,
                                           text: controller.list[index].dataValues?.title ?? '',
-                                          press: () {
+                                          onTap: () {
                                             controller.changeIndex(index);
                                           }),
                                       const SizedBox(width: Dimensions.space10)

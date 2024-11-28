@@ -177,7 +177,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               CustomElevatedBtn(
                 isLoading: controller.submitLoading,
                 text: MyStrings.signUp.tr,
-                press: () {
+                onTap: () {
                   if (formKey.currentState!.validate()) {
                     controller.signUpUser();
                   }

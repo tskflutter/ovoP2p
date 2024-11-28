@@ -13,7 +13,6 @@ import 'package:ovolutter/app/screens/auth/login/login_screen.dart';
 import 'package:ovolutter/app/screens/auth/profile_complete/profile_complete_screen.dart';
 import 'package:ovolutter/app/screens/auth/registration/registration_screen.dart';
 import 'package:ovolutter/app/screens/auth/sms_verification_page/sms_verification_screen.dart';
-import 'package:ovolutter/app/screens/components_preview/components_preview_screen.dart';
 import 'package:ovolutter/app/screens/edit_profile/edit_profile_screen.dart';
 import 'package:ovolutter/app/screens/faq/faq_screen.dart';
 import 'package:ovolutter/app/screens/language/language_screen.dart';
@@ -39,7 +38,6 @@ import '../../app/screens/withdraw/withdraw_history/withdraw_screen.dart';
 
 class RouteHelper {
   //use screen in screen name and route name
-  static const String componentPreviewScreen = "/component_preview_screen";
   static const String splashScreen = "/splash_screen";
   static const String onboardScreen = "/onboard_screen";
   static const String loginScreen = "/login_screen";
@@ -82,37 +80,29 @@ class RouteHelper {
   static const String notification = "/notifications-screen";
 
   List<GetPage> routes = [
-    GetPage(name: componentPreviewScreen, page: () => const ComponentPreviewScreen()),
-    GetPage(name: onboardScreen, page: () => const OnboardScreen()),
-    GetPage(name: splashScreen, page: () => const SplashScreen()),
-    GetPage(
-      name: loginScreen,
-      page: () => const LoginScreen(),
-      transition: Transition.downToUp,
-      fullscreenDialog: true,
-      popGesture: false,
-      transitionDuration: const Duration(milliseconds: 300),
-    ),
-    GetPage(name: forgotPasswordScreen, page: () => const ForgetPasswordScreen()),
-    GetPage(name: changePasswordScreen, page: () => const ChangePasswordScreen()),
-    GetPage(name: registrationScreen, page: () => const RegistrationScreen()),
-    GetPage(name: profileCompleteScreen, page: () => const ProfileCompleteScreen()),
-    GetPage(name: bottomNavBar, page: () => const BottomNavBar()),
-    GetPage(name: withdrawScreen, page: () => const WithdrawScreen()),
-    GetPage(name: addWithdrawMethodScreen, page: () => const AddWithdrawMethod()),
-    GetPage(name: withdrawConfirmScreenScreen, page: () => const WithdrawConfirmScreen()),
-    GetPage(name: profileScreen, page: () => const ProfileScreen()),
-    GetPage(name: editProfileScreen, page: () => const EditProfileScreen()),
-    GetPage(name: transactionHistoryScreen, page: () => const TransactionsScreen()),
-    GetPage(name: kycScreen, page: () => const KycScreen()),
+    GetPage(name: onboardScreen, page: () => const OnboardScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: splashScreen, page: () => const SplashScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: loginScreen, page: () => const LoginScreen(), transition: Transition.downToUp, fullscreenDialog: true, popGesture: false, transitionDuration: const Duration(milliseconds: 300)),
+    GetPage(name: forgotPasswordScreen, page: () => const ForgetPasswordScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: changePasswordScreen, page: () => const ChangePasswordScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: registrationScreen, page: () => const RegistrationScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: profileCompleteScreen, page: () => const ProfileCompleteScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: bottomNavBar, page: () => const BottomNavBar(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: withdrawScreen, page: () => const WithdrawScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: addWithdrawMethodScreen, page: () => const AddWithdrawMethod(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: withdrawConfirmScreenScreen, page: () => const WithdrawConfirmScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: profileScreen, page: () => const ProfileScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: editProfileScreen, page: () => const EditProfileScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: transactionHistoryScreen, page: () => const TransactionsScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: kycScreen, page: () => const KycScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
     GetPage(name: depositWebViewScreen, page: () => MyWebViewScreen(redirectUrl: Get.arguments)),
-    GetPage(name: depositsHistoryScreen, page: () => const DepositsHistoryScreen()),
-    GetPage(name: newDepositScreenScreen, page: () => const NewDepositScreen()),
-    GetPage(name: emailVerificationScreen, page: () => const EmailVerificationScreen()),
-    GetPage(name: smsVerificationScreen, page: () => const SmsVerificationScreen()),
-    GetPage(name: verifyPassCodeScreen, page: () => const VerifyForgetPassScreen()),
-    GetPage(name: resetPasswordScreen, page: () => const ResetPasswordScreen()),
-    GetPage(name: twoFactorScreen, page: () => const TwoFactorVerificationScreen()),
+    GetPage(name: depositsHistoryScreen, page: () => const DepositsHistoryScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: newDepositScreenScreen, page: () => const NewDepositScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: emailVerificationScreen, page: () => const EmailVerificationScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: smsVerificationScreen, page: () => const SmsVerificationScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: verifyPassCodeScreen, page: () => const VerifyForgetPassScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: resetPasswordScreen, page: () => const ResetPasswordScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: twoFactorScreen, page: () => const TwoFactorVerificationScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
     GetPage(
       name: kycScreen,
       page: () => const KycScreen(),
@@ -121,16 +111,15 @@ class RouteHelper {
       popGesture: false,
       transitionDuration: const Duration(milliseconds: 300),
     ),
-    GetPage(name: privacyScreen, page: () => const PrivacyPolicyScreen()),
-    GetPage(name: twoFactorSetupScreen, page: () => const TwoFactorSetupScreen()),
-    GetPage(name: languageScreen, page: () => const LanguageScreen()),
-    // GetPage(name: communityGroupList, page: () => const OurCommunityGroupList()),
-    GetPage(name: allTicketScreen, page: () => const AllTicketScreen()),
-    GetPage(name: ticketDetailsScreen, page: () => const TicketDetailsScreen()),
-    GetPage(name: newTicketScreen, page: () => const NewTicketScreen()),
+    GetPage(name: privacyScreen, page: () => const PrivacyPolicyScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: twoFactorSetupScreen, page: () => const TwoFactorSetupScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: languageScreen, page: () => const LanguageScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: allTicketScreen, page: () => const AllTicketScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: ticketDetailsScreen, page: () => const TicketDetailsScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: newTicketScreen, page: () => const NewTicketScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
     GetPage(name: previewImageScreen, page: () => PreviewImage(url: Get.arguments)),
-    GetPage(name: faqScreen, page: () => const FaqScreen()),
-    GetPage(name: notificationScreen, page: () => const NotificationScreen()),
+    GetPage(name: faqScreen, page: () => const FaqScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
+    GetPage(name: notificationScreen, page: () => const NotificationScreen(), transitionDuration: const Duration(milliseconds: 400), transition: Transition.fadeIn),
   ];
 
   static Future<void> checkUserStatusAndGoToNextStep(User? user, {bool isRemember = false, String accessToken = "", String tokenType = ""}) async {

@@ -97,7 +97,7 @@ class _VerifyForgetPassScreenState extends State<VerifyForgetPassScreen> {
                           const SizedBox(height: Dimensions.space25),
                           CustomElevatedBtn(
                             isLoading: controller.verifyLoading,
-                            press: () {
+                            onTap: () {
                               if (controller.currentText.length != 6) {
                                 controller.hasError = true;
                               } else {

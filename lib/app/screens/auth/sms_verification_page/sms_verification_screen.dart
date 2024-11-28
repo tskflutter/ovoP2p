@@ -118,7 +118,7 @@ class _SmsVerificationScreenState extends State<SmsVerificationScreen> {
                         CustomElevatedBtn(
                           text: MyStrings.verify.tr,
                           isLoading: controller.submitLoading,
-                          press: () {
+                          onTap: () {
                             controller.verifyYourSms(controller.currentText);
                           },
                         ),

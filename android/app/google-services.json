@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "673830063591",
-    "project_id": "ovolutter",
-    "storage_bucket": "ovolutter.appspot.com"
+    "project_number": "20334561013",
+    "project_id": "ovo-global",
+    "storage_bucket": "ovo-global.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:673830063591:android:c993c55fc142a1e7d0c142",
+        "mobilesdk_app_id": "1:20334561013:android:7105c73cfc4c9b896627bc",
         "android_client_info": {
-          "package_name": "com.example.ovolutter"
+          "package_name": "com.ovosolution.ovolutter"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDty_ZTa_aTRiKCpXmJ3_kKQyMPHaRtBKY"
+          "current_key": "AIzaSyB7-rflEiRppMTpy6981o8uF4NxjfWAXOc"
         }
       ],
       "services": {

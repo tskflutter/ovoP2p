@@ -180,7 +180,7 @@ class _KycScreenState extends State<KycScreen> {
                                           Center(
                                             child: CustomElevatedBtn(
                                               isLoading: controller.submitLoading,
-                                              press: () {
+                                              onTap: () {
                                                 if (formKey.currentState!.validate()) {
                                                   controller.submitKycData();
                                                 } else {}

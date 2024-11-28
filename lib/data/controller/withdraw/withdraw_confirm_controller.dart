@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/route/route.dart';
-import 'package:ovolutter/core/utils/my_strings.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/model/profile/profile_response_model.dart';
@@ -143,8 +143,8 @@ class WithdrawConfirmController extends GetxController {
         formList[index].selectedValue = DateConverter.estimatedDateTime(selectedDateTime);
         // formList[index].selectedValue = selectedDateTime.toIso8601String();
         formList[index].textEditingController?.text = DateConverter.estimatedDateTime(selectedDateTime);
-        print(formList[index].textEditingController?.text);
-        print(formList[index].selectedValue);
+        printX(formList[index].textEditingController?.text);
+        printX(formList[index].selectedValue);
         update();
       }
     }
@@ -168,8 +168,8 @@ class WithdrawConfirmController extends GetxController {
 
       formList[index].selectedValue = DateConverter.estimatedDate(selectedDateTime);
       formList[index].textEditingController?.text = DateConverter.estimatedDate(selectedDateTime);
-      print(formList[index].textEditingController?.text);
-      print(formList[index].selectedValue);
+      printX(formList[index].textEditingController?.text);
+      printX(formList[index].selectedValue);
       update();
     }
 
@@ -192,8 +192,8 @@ class WithdrawConfirmController extends GetxController {
 
       formList[index].selectedValue = DateConverter.estimatedTime(selectedDateTime);
       formList[index].textEditingController?.text = DateConverter.estimatedTime(selectedDateTime);
-      print(formList[index].textEditingController?.text);
-      print(formList[index].selectedValue);
+      printX(formList[index].textEditingController?.text);
+      printX(formList[index].selectedValue);
       update();
     }
 

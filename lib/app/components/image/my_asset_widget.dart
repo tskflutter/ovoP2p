@@ -22,8 +22,7 @@ class MyAssetImageWidget extends StatelessWidget {
   });
 
   @override
-    Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+  Widget build(BuildContext context) {
     return Container(
       height: height,
       width: width,

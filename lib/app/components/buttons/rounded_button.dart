@@ -6,7 +6,7 @@ import 'package:ovolutter/core/utils/my_color.dart';
 class RoundedButton extends StatelessWidget {
   final bool isColorChange;
   final String text;
-  final VoidCallback press;
+  final VoidCallback onPress;
   final Color color;
   final Color? textColor;
   final double width;
@@ -24,7 +24,7 @@ class RoundedButton extends StatelessWidget {
     this.child,
     this.cornerRadius = 6,
     required this.text,
-    required this.press,
+    required this.onPress,
     this.isOutlined = false,
     this.horizontalPadding = 35,
     this.verticalPadding = 18,
@@ -39,7 +39,7 @@ class RoundedButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return child != null
         ? InkWell(
-            onTap: press,
+            onTap: onPress,
             splashColor: MyColor.getScaffoldBackgroundColor(),
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
@@ -50,7 +50,7 @@ class RoundedButton extends StatelessWidget {
         : isOutlined
             ? Material(
                 child: InkWell(
-                  onTap: press,
+                  onTap: onPress,
                   splashColor: MyColor.getScaffoldBackgroundColor(),
                   child: Container(
                       padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
@@ -64,7 +64,7 @@ class RoundedButton extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(cornerRadius),
                   child: ElevatedButton(
-                    onPressed: press,
+                    onPressed: onPress,
                     style: ElevatedButton.styleFrom(backgroundColor: color, shadowColor: MyColor.getTransparentColor(), padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding), textStyle: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.w500)),
                     child: isLoading
                         ? CustomLoader(loaderColor: textColor ?? theme.cardColor)

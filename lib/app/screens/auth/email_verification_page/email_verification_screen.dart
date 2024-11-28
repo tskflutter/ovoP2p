@@ -83,7 +83,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                           CustomElevatedBtn(
                             isLoading: controller.submitLoading,
                             text: MyStrings.verify.tr,
-                            press: () {
+                            onTap: () {
                               controller.verifyEmail(controller.currentText);
                             },
                           ),

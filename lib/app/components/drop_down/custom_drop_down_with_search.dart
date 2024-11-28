@@ -3,6 +3,7 @@ import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/app/components/text-field/animated_text_field.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 
 class CustomDropDownWithSearchField extends StatefulWidget {
   final String? title, selectedValue;
@@ -47,7 +48,7 @@ class _CustomDropDownWithSearchFieldState extends State<CustomDropDownWithSearch
     widget.list?.removeWhere((element) => element.isEmpty);
     return StatefulBuilder(builder: (context, fn) {
       void filter(String query) {
-        print(query);
+        printX(query);
         if (query.isEmpty) {
           filteredOptions = widget.list ?? [];
         } else {
@@ -58,7 +59,7 @@ class _CustomDropDownWithSearchFieldState extends State<CustomDropDownWithSearch
             filteredOptions.addAll(newItems);
           });
         }
-        print("options: $filteredOptions");
+        printX("options: $filteredOptions");
       }
 
       return Column(

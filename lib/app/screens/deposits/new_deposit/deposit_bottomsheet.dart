@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
@@ -8,7 +9,7 @@ import 'package:ovolutter/app/components/bottom-sheet/bottom_sheet_bar.dart';
 import 'package:ovolutter/app/components/bottom-sheet/bottom_sheet_close_button.dart';
 import 'package:ovolutter/app/components/bottom-sheet/custom_bottom_sheet_plus.dart';
 import 'package:ovolutter/app/components/card/bottom_sheet_card.dart';
-import 'package:ovolutter/app/components/image/my_image_widget.dart';
+
 
 class DepositBottomsheet {
   static void deposittBottomSheet(BuildContext context, AddNewDepositController controller) {
@@ -80,7 +81,7 @@ class DepositBottomsheet {
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.only(end: Dimensions.space10),
-                                      child: MyImageWidget(
+                                      child: MyNetworkImageWidget(
                                         imageUrl: ("${controller.imagePath}/${controller.methodList[index].method?.image}"),
                                         height: Dimensions.space30,
                                         width: Dimensions.space40 + 10,

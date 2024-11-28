@@ -27,7 +27,7 @@ showExitDialog(BuildContext context) {
     showCloseIcon: false,
     btnCancel: RoundedButton(
       text: MyStrings.no.tr,
-      press: () {
+      onPress: () {
         Navigator.pop(context);
       },
       horizontalPadding: 3,
@@ -36,7 +36,7 @@ showExitDialog(BuildContext context) {
     ),
     btnOk: RoundedButton(
         text: MyStrings.yes.tr,
-        press: () {
+        onPress: () {
           SystemNavigator.pop();
         },
         horizontalPadding: 3,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:ovolutter/data/model/kyc/kyc_response_model.dart' as kyc;
 import 'package:ovolutter/app/components/text-field/custom_text_field.dart';
 import 'package:get/get.dart';
@@ -33,7 +34,7 @@ class KycDateTimeSection extends StatelessWidget {
           textInputType: TextInputType.datetime,
           readOnly: true,
           validator: (value) {
-            print(model.isRequired);
+            printX(model.isRequired);
             if (model.isRequired != 'optional' && value.toString().isEmpty) {
               return '${model.name.toString().capitalizeFirst} ${MyStrings.isRequired}';
             } else {

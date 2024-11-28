@@ -21,6 +21,7 @@ class PushNotificationService {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     FirebaseMessaging messaging = FirebaseMessaging.instance;
+    FirebaseMessaging.onBackgroundMessage(_messageHandler);
     await _requestPermissions();
 
     await messaging.requestPermission(
@@ -36,9 +37,18 @@ class PushNotificationService {
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {});
 
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {});
+
     messaging.getToken().then((value) {});
     await enableIOSNotifications();
     await registerNotificationListeners();
+  }
+
+  Future<void> _messageHandler(RemoteMessage message) async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    SharedPreferenceService.setBool(SharedPreferenceService.hasNewNotificationKey, true);
   }
 
   registerNotificationListeners() async {
@@ -51,8 +61,8 @@ class PushNotificationService {
       requestBadgePermission: true,
       requestAlertPermission: true,
     );
-    var initSetttings = InitializationSettings(android: androidSettings, iOS: iOSSettings);
-    flutterLocalNotificationsPlugin.initialize(initSetttings, onDidReceiveNotificationResponse: (message) async {
+    var initSettings = InitializationSettings(android: androidSettings, iOS: iOSSettings);
+    flutterLocalNotificationsPlugin.initialize(initSettings, onDidReceiveNotificationResponse: (message) async {
       try {
         String? payloadString = message.payload is String ? message.payload : jsonEncode(message.payload);
         if (payloadString != null && payloadString.isNotEmpty) {
