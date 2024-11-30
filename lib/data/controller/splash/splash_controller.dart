@@ -25,6 +25,7 @@ class SplashController extends GetxController {
       PushNotificationService().sendUserToken();
     }
     await loadLanguage();
+    await storeLangDataInLocalStorage();
     await loadAndSaveGeneralSettingsData(isRemember);
   }
 
@@ -60,6 +61,16 @@ class SplashController extends GetxController {
         Get.offAndToNamed(RouteHelper.loginScreen);
       });
     }
+  }
+
+  storeLangDataInLocalStorage() {
+    if (!SharedPreferenceService.containsKey(SharedPreferenceService.countryCode)) {
+      return SharedPreferenceService.setString(SharedPreferenceService.countryCode, LocalizationController.myLanguages[0].countryCode);
+    }
+    if (!SharedPreferenceService.containsKey(SharedPreferenceService.languageCode)) {
+      return SharedPreferenceService.setString(SharedPreferenceService.languageCode, LocalizationController.myLanguages[0].languageCode);
+    }
+    return Future.value(true);
   }
 
   Future<void> loadLanguage() async {
