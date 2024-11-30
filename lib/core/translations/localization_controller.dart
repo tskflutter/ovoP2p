@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ovolutter/data/services/shared_pref_service.dart';
 import 'package:ovolutter/data/model/language/language_model.dart';
 
@@ -38,6 +39,7 @@ class LocalizationController {
   int get selectedIndex => _selectedIndex;
 
   void setLanguage(Locale locale, String? imageUrl) {
+    Get.updateLocale(locale);
     _locale = locale;
     _isLtr = _locale.languageCode != 'ar';
     saveLanguage(_locale, imageUrl);
