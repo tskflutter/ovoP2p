@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-export 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget spaceDown(double height, {Color? color = Colors.transparent, double width = 0, EdgeInsetsGeometry? margin}) {
   return Container(

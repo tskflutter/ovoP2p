@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
@@ -35,40 +34,10 @@ class ProfileCompleteController extends GetxController {
   FocusNode cityFocusNode = FocusNode();
 
   bool countryLoading = true;
-  List<Countries> countryList = [];
-  List<Countries> filteredCountries = [];
-
-  String? countryName;
-  String? countryCode;
-  String? mobileCode;
-
-  Future<dynamic> getCountryData() async {
-    ResponseModel mainResponse = await profileRepo.getCountryList();
-
-    if (mainResponse.statusCode == 200) {
-      CountryModel model = CountryModel.fromJson(mainResponse.responseJson);
-      List<Countries>? tempList = model.data?.countries;
-
-      if (tempList != null && tempList.isNotEmpty) {
-        countryList.clear();
-        filteredCountries.clear();
-        countryList.addAll(tempList);
-        filteredCountries.addAll(tempList);
-      }
-      var selectDefCountry = tempList!.firstWhere(
-        (country) => country.countryCode!.toLowerCase() == Environment.defaultCountryCode.toLowerCase(),
-        orElse: () => Countries(),
-      );
-      if (selectDefCountry.dialCode != null) {
-        setCountryNameAndCode(selectDefCountry.country.toString(), selectDefCountry.countryCode.toString(), selectDefCountry.dialCode.toString());
-      }
-    } else {
-      CustomSnackBar.error(errorList: [mainResponse.message]);
-    }
-
-    countryLoading = false;
-    update();
-  }
+  Countries? countryData;
+  // String? countryName;
+  // String? countryCode;
+  // String? mobileCode;
 
   bool isLoading = false;
   bool submitLoading = false;
@@ -107,10 +76,10 @@ class ProfileCompleteController extends GetxController {
 
     ProfileCompletePostModel model = ProfileCompletePostModel(
       username: username,
-      countryName: countryName ?? "",
-      countryCode: countryCode ?? "",
+      countryName: countryData?.country ?? "",
+      countryCode: countryData?.countryCode ?? "",
       mobileNumber: mobileNumber,
-      mobileCode: mobileCode ?? "",
+      mobileCode: countryData?.dialCode ?? "",
       address: address,
       state: state,
       zip: zip,
@@ -132,13 +101,6 @@ class ProfileCompleteController extends GetxController {
     }
 
     submitLoading = false;
-    update();
-  }
-
-  void setCountryNameAndCode(String cName, String countryCode, String mobileCode) {
-    countryName = cName;
-    this.countryCode = countryCode;
-    this.mobileCode = mobileCode;
     update();
   }
 
@@ -164,7 +126,14 @@ class ProfileCompleteController extends GetxController {
     }
   }
 
-  void initData() {
-    getCountryData();
+  selectACountry({Countries? countryDataValue}) {
+    countryData = countryDataValue;
+    if (countryData != null) {
+      countryController.text = countryData!.country!;
+    } else {
+      countryController.text = SharedPreferenceService.getCountryJsonDataData().data?.countries?.firstWhere((v) => v.countryCode == Environment.defaultCountryCode).country ?? "";
+    }
+
+    update();
   }
 }

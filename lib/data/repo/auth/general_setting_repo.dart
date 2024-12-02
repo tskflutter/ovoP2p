@@ -19,4 +19,10 @@ class GeneralSettingRepo {
       return ResponseModel(isSuccess: false, message: MyStrings.somethingWentWrong, statusCode: 300, responseJson: "");
     }
   }
+
+  Future<dynamic> getCountryList() async {
+    String url = '${UrlContainer.baseUrl}${UrlContainer.countryEndPoint}';
+    ResponseModel model = await ApiService.getRequest(url);
+    return model;
+  }
 }

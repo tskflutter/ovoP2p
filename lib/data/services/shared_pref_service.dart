@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:ovolutter/data/model/country_model/country_model.dart';
 import 'package:ovolutter/data/model/general_setting/general_setting_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,7 +25,7 @@ class SharedPreferenceService {
   static const String languageCode = 'language_code';
   static const String languageKey = 'language-key';
   static const String languageListKey = 'language-list-key';
-
+  static const String countryJsonData = 'country_json_data';
   static SharedPreferences? _prefs;
 
   /// Initialize SharedPreferences instance
@@ -147,6 +148,15 @@ class SharedPreferenceService {
 
   static String getCurrencySymbol() {
     return getGeneralSettingData().data?.generalSetting?.curSym ?? "";
+  }
+
+  static Future<void> setCountryJsonDataData(CountryModel model) async {
+    await setJsonObject(countryJsonData, model.toJson());
+  }
+
+  static CountryModel getCountryJsonDataData() {
+    var getData = getJsonObject(countryJsonData);
+    return CountryModel.fromJson(getData);
   }
   // You can add similar methods for other keys as needed.
 }

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart'; // For SVG rendering
 
@@ -8,8 +9,8 @@ class MyAssetImageWidget extends StatelessWidget {
   final double radius;
   final BoxFit boxFit;
   final bool isSvg;
+  final bool isFile;
   final Color? color;
-
   const MyAssetImageWidget({
     super.key,
     required this.assetPath,
@@ -18,9 +19,9 @@ class MyAssetImageWidget extends StatelessWidget {
     this.radius = 5,
     this.boxFit = BoxFit.fitHeight,
     this.isSvg = false, // Set to true if SVG
+    this.isFile = false, // Set to true if File
     this.color,
   });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +35,9 @@ class MyAssetImageWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         child: isSvg
             ? _buildSvgImage() // Handle SVG images
-            : _buildRasterImage(), // Handle PNG/JPG images
+            : isFile
+                ? _buildFileImage()
+                : _buildAssetImage(), // Handle PNG/JPG images
       ),
     );
   }
@@ -49,9 +52,20 @@ class MyAssetImageWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRasterImage() {
+  Widget _buildAssetImage() {
     return Image.asset(
       assetPath,
+      height: height,
+      width: width,
+      fit: boxFit,
+      color: color,
+      colorBlendMode: color != null ? BlendMode.srcIn : null,
+    );
+  }
+
+  Widget _buildFileImage() {
+    return Image.file(
+      File(assetPath),
       height: height,
       width: width,
       fit: boxFit,

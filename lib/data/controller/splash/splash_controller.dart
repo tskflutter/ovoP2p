@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:ovolutter/core/translations/localization_controller.dart';
+import 'package:ovolutter/data/model/country_model/country_model.dart';
 import 'package:ovolutter/data/services/push_notification_service.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/core/route/route.dart';
@@ -26,6 +27,7 @@ class SplashController extends GetxController {
     }
     await loadLanguage();
     await storeLangDataInLocalStorage();
+    loadCountryDataAndSaveToLocalStorage();
     await loadAndSaveGeneralSettingsData(isRemember);
   }
 
@@ -96,6 +98,19 @@ class SplashController extends GetxController {
       }
     } else {
       CustomSnackBar.error(errorList: [response.message]);
+    }
+  }
+
+  loadCountryDataAndSaveToLocalStorage() async {
+    try {
+      ResponseModel response = await repo.getCountryList();
+      if (response.statusCode == 200) {
+        CountryModel countryModel = CountryModel.fromJson(response.responseJson);
+
+        await SharedPreferenceService.setCountryJsonDataData(countryModel);
+      }
+    } catch (e) {
+      CustomSnackBar.error(errorList: [e.toString()]);
     }
   }
 
