@@ -9,7 +9,7 @@ class MyFonts {
   static String currentAppLanguageCode = SharedPreferenceService.getString(SharedPreferenceService.languageCode, defaultValue: 'en');
 
   // return the right font depending on app language
-  static TextStyle get getAppFontType => LocalizationController.supportedLanguagesFontsFamilies[currentAppLanguageCode]!;
+  static TextStyle get getAppFontType => LocalizationController.supportedLanguagesFontsFamilies.containsKey(currentAppLanguageCode) ? LocalizationController.supportedLanguagesFontsFamilies[currentAppLanguageCode]! : const TextStyle(); // Returns empty TextStyle if the language is not found
 
   // ========== TEXT STYLES SECTION ==========
 

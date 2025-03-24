@@ -48,70 +48,65 @@ class OvoApp extends StatefulWidget {
 class _OvoAppState extends State<OvoApp> {
   @override
   Widget build(BuildContext context) {
-    // Get the screen size and orientation
-    final size = MediaQuery.of(context).size;
-    final orientation = MediaQuery.of(context).orientation;
-
-    // Determine the design size based on screen size and orientation
-    Size designSize;
-
-    if (size.width > 600) {
-      // Tablet-sized devices
-      if (orientation == Orientation.landscape) {
-        // If the orientation is landscape, you might want to adjust the design size further
-        designSize = const Size(1200, 800); // Larger design for tablets in landscape
+    return OrientationBuilder(builder: (context, orientation) {
+      final size = MediaQuery.of(context).size;
+      Size designSize;
+      if (size.width > 900) {
+        // **Tablets or Large Screens**
+        designSize = orientation == Orientation.landscape ? const Size(1400, 900) : const Size(900, 1400);
+      } else if (size.width > 600) {
+        // **Medium-sized tablets**
+        designSize = orientation == Orientation.landscape ? const Size(1200, 800) : const Size(800, 1200);
+      } else if (size.width > 430) {
+        // **Big Phones like Galaxy S24 Ultra, iPhone 15 Pro Max**
+        designSize = orientation == Orientation.landscape
+            ? const Size(1000, 450) // Adjust for landscape
+            : const Size(450, 1000); // Adjust for portrait
       } else {
-        designSize = const Size(800, 1200); // Larger design for tablets in portrait
+        // **Default mobile phones**
+        designSize = orientation == Orientation.landscape ? const Size(812, 375) : const Size(375, 812);
       }
-    } else {
-      // Mobile-sized devices
-      if (orientation == Orientation.landscape) {
-        // If in landscape mode on mobile devices, use a slightly wider design size
-        designSize = const Size(812, 375); // Adjust for landscape mode on mobile
-      } else {
-        // Default design for portrait mode on mobile
-        designSize = const Size(375, 812);
-      }
-    }
+      // printE("$designSize -- ${size.width}");
 
-    return ScreenUtilInit(
-      // todo add your (Xd / Figma) artboard size
-      designSize: designSize,
-      minTextAdapt: true,
-      splitScreenMode: true,
-      useInheritedMediaQuery: true,
-      rebuildFactor: (old, data) => true,
-      builder: (context, w) {
-        return ToastificationWrapper(
-          child: GetMaterialApp(
-            title: Environment.appName,
-            debugShowCheckedModeBanner: false,
-            defaultTransition: Transition.noTransition,
-            transitionDuration: const Duration(milliseconds: 200),
-            initialRoute: RouteHelper.splashScreen,
-            // theme: lightThemeData,
-            // darkTheme: darkThemeData,
-            // themeMode: themeController.darkTheme ? ThemeMode.dark : ThemeMode.light,
-            navigatorKey: Get.key,
-            getPages: RouteHelper().routes,
-            locale: LocalizationController().locale,
-            translations: Messages(languages: widget.languages),
-            fallbackLocale: Locale(LocalizationController().locale.languageCode, LocalizationController().locale.countryCode),
-            builder: (context, widget) {
-              bool themeIsLight = SharedPreferenceService.getThemeIsLight();
-              return Theme(
-                data: MyTheme.getThemeData(isLight: themeIsLight),
-                child: MediaQuery(
-                  // prevent font from scalling (some people use big/small device fonts)
-                  // but we want our app font to still the same and dont get affected
-                  data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-                  child: widget!,
-                ),
-              );
-            },
-          ),
-        );
-      },
-    );
+      return ScreenUtilInit(
+        // todo add your (Xd / Figma) artboard size
+        designSize: designSize,
+        minTextAdapt: true,
+        splitScreenMode: true,
+        useInheritedMediaQuery: true,
+        rebuildFactor: (old, data) => true,
+        builder: (context, w) {
+          return ToastificationWrapper(
+            child: GetMaterialApp(
+              title: Environment.appName,
+              debugShowCheckedModeBanner: false,
+              defaultTransition: Transition.noTransition,
+              transitionDuration: const Duration(milliseconds: 200),
+              initialRoute: RouteHelper.splashScreen,
+              // theme: lightThemeData,
+              // darkTheme: darkThemeData,
+              // themeMode: themeController.darkTheme ? ThemeMode.dark : ThemeMode.light,
+              navigatorKey: Get.key,
+              getPages: RouteHelper().routes,
+              locale: LocalizationController().locale,
+              translations: Messages(languages: widget.languages),
+              fallbackLocale: Locale(LocalizationController().locale.languageCode, LocalizationController().locale.countryCode),
+              builder: (context, widget) {
+                bool themeIsLight = SharedPreferenceService.getThemeIsLight();
+                return Theme(
+                  data: MyTheme.getThemeData(isLight: themeIsLight),
+                  child: MediaQuery(
+                    // prevent font from scalling (some people use big/small device fonts)
+                    // but we want our app font to still the same and dont get affected
+                    data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
+                    child: widget!,
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      );
+    });
   }
 }
