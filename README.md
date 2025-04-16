@@ -75,15 +75,15 @@ This document outlines the typography styles used in the project. Each typograph
 
 | **Name**          | **Size** | **Weight** | **Spacing** |
 |-------------------|----------|------------|-------------|
-| `displayLarge`    | 57.0     | w600       | -1.5        |
-| `displayMedium`   | 45.0     | w600       | -0.5        |
+| `displayLarge`    | 57.0     | w700       | -1.5        |
+| `displayMedium`   | 45.0     | w700       | -0.5        |
 | `displaySmall`    | 36.0     | w400       | 0.0         |
-| `headlineLarge`   | 24.0     | w600       | 0.25        |
-| `headlineMedium`  | 20.0     | w600       | 0.25        |
-| `headlineSmall`   | 17.0     | w600       | 0.0         |
-| `titleLarge`      | 22.0     | w600       | 0.15        |
-| `titleMedium`     | 18.0     | w600       | 0.15        |
-| `titleSmall`      | 14.0     | w600       | 0.1         |
+| `headlineLarge`   | 24.0     | w700       | 0.25        |
+| `headlineMedium`  | 20.0     | w700       | 0.25        |
+| `headlineSmall`   | 17.0     | w700       | 0.0         |
+| `titleLarge`      | 22.0     | w700       | 0.15        |
+| `titleMedium`     | 18.0     | w700       | 0.15        |
+| `titleSmall`      | 14.0     | w700       | 0.1         |
 | `bodyLarge`       | 16.0     | w400       | 0.5         |
 | `bodyMedium`      | 13.0     | w400       | 0.25        |
 | `bodySmall`       | 11.0     | w400       | 0.4         |
