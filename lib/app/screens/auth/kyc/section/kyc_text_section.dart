@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/text-field/rounded_text_field.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
+import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/util.dart';
 import 'package:ovolutter/data/model/kyc/kyc_response_model.dart' as kyc;
@@ -17,20 +19,20 @@ class KycTextAnEmailSection extends StatelessWidget {
   });
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     bool isRequired = model.isRequired == 'optional' ? false : true;
     printX(isRequired);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextField(
+        RoundedTextField(
+          fillColor: MyColor.pcBackground,
+          labelFillColor: MyColor.pcBackground,
           isRequired: model.isRequired == 'optional' ? false : true,
           instructions: model.instruction,
-          hintText: '',
-          needOutlineBorder: true,
-          labelText: (model.name ?? '').tr.capitalize,
-          textInputType: MyUtils.getInputTextFieldType(model.type ?? 'text'),
+          onChanged: (value) => onChanged(value),
+          maxLine: model.type == "textarea" ? 5 : 1,
           validator: (value) {
             if (isRequired && value.toString().isEmpty) {
               return '${model.name.toString().capitalizeFirst} ${MyStrings.isRequired}';
@@ -38,8 +40,9 @@ class KycTextAnEmailSection extends StatelessWidget {
               return null;
             }
           },
-          onChanged: (value) => onChanged(value),
-          maxLines: model.type == "textarea" ? 5 : 1,
+          keyboardType: MyUtils.getInputTextFieldType(model.type ?? 'text'),
+          labelText: (model.name ?? '').tr.capitalize ?? "",
+          hintText: '',
         ),
         const SizedBox(height: Dimensions.space10),
       ],

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
 import 'package:ovolutter/core/utils/util.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 
 import 'package:ovolutter/data/controller/splash/splash_controller.dart';
 import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
@@ -37,21 +39,30 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return SafeArea(
       child: GetBuilder<SplashController>(
         builder: (controller) => Scaffold(
-          backgroundColor: controller.noInternet ? MyColor.white : MyColor.getPrimaryColor(),
+          // backgroundColor: controller.noInternet ? MyColor.white : MyColor.getPrimaryColor(),
           body: Stack(
             children: [
               Align(
                 alignment: Alignment.center,
                 child: MyAssetImageWidget(
+                  height: context.height,
+                  width: context.width,
+                  boxFit: BoxFit.cover,
+                  assetPath: MyImages.splashBgImage,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: MyAssetImageWidget(
                   isSvg: true,
-                  height: 100,
-                  width: 100,
-                  assetPath: MyImages.appLogoIcon,
+                  height: Dimensions.space40.h,
+                  width: Dimensions.space200.w,
+                  assetPath: MyImages.appLogo,
                 ),
               ),
             ],

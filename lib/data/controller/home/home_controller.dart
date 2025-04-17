@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:ovolutter/data/model/general_setting/general_setting_response_model.dart';
 import 'package:ovolutter/data/repo/home/home_repo.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,19 @@ class HomeController extends GetxController {
   String username = "";
   String siteName = "";
   String imagePath = "";
+
+  int currentIndex = 0;
+  PageController? controller = PageController();
+
+  void setCurrentIndex(int index) {
+    currentIndex = index;
+    controller?.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOut,
+    );
+    update();
+  }
 
   String defaultCurrencySymbol = "";
   GeneralSettingResponseModel generalSettingResponseModel = GeneralSettingResponseModel();
@@ -79,6 +93,22 @@ class HomeController extends GetxController {
   bool showMoreWidget = false;
   changeShowMoreWidgetState() async {
     showMoreWidget = !showMoreWidget;
+    update();
+  }
+
+  bool availableTradeLoading = false;
+  delay() {
+    availableTradeLoading = true;
+    update();
+    Future.delayed(Duration(seconds: 2), () {
+      availableTradeLoading = false;
+      update();
+    });
+  }
+
+  bool isBuy = true;
+  changeStatus() async {
+    isBuy = !isBuy;
     update();
   }
 

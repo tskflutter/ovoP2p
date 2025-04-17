@@ -47,7 +47,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   int currentIndex = 0;
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     if (widget.bottomNavStyle == BOTTOMNAVSTYLE.STYLE1) {
       return styleOne(context);
@@ -241,9 +241,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       padding: const EdgeInsets.symmetric(vertical: Dimensions.space15),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: widget.bottomNavBGColor ?? Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        color: widget.bottomNavBGColor,
         borderRadius: BorderRadius.circular(widget.radius),
-        boxShadow: widget.boxShadow ?? [BoxShadow(color: MyColor.getBorderColor(), offset: const Offset(-2, -2), blurRadius: 2)],
+        //  boxShadow: widget.boxShadow ?? [BoxShadow(color: MyColor.getBorderColor(), offset: const Offset(-2, -2), blurRadius: 2)],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -262,40 +262,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               decoration: BoxDecoration(
                 color: currentIndex == widget.items[index].index ? (widget.selectedItemBGColor ?? MyColor.getPrimaryColor()) : MyColor.getTransparentColor(),
                 borderRadius: BorderRadius.circular(Dimensions.mediumRadius),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (widget.items[index].isIconData == true) ...[
-                    Icon(widget.items[index].icon)
-                  ] else ...[
-                    widget.items[index].image.contains('svg')
-                        ? SvgPicture.asset(
-                            widget.items[index].image,
-                            colorFilter: ColorFilter.mode(
-                              widget.items[index].index == currentIndex ? widget.selectedIconColor! : widget.iconColor!,
-                              BlendMode.srcIn,
-                            ),
-                            width: 16,
-                            height: 16,
-                          )
-                        : Image.asset(
-                            widget.items[index].image,
-                            color: widget.items[index].index == currentIndex ? widget.selectedIconColor : widget.iconColor,
-                            width: 16,
-                            height: 16,
-                          ),
-                  ],
-                  if (widget.items[index].index == currentIndex) ...[
-                    const SizedBox(width: Dimensions.space10 / 2),
-                    Text(
-                      widget.items[index].name.tr,
-                      textAlign: TextAlign.center,
-                      style: widget.labelStyle ?? regularSmall.copyWith(color: widget.items[index].index == currentIndex ? widget.selectedIconColor : MyColor.getBodyTextColor()),
-                    ),
-                  ]
-                ],
               ),
             ),
           ),

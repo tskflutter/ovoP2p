@@ -3,7 +3,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/app/components/image/my_asset_widget.dart';
 import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../core/utils/my_color.dart';
@@ -17,7 +19,7 @@ class EnableQRCodeWidget extends StatelessWidget {
   const EnableQRCodeWidget({super.key, required this.qrImage, required this.secret});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,9 +27,10 @@ class EnableQRCodeWidget extends StatelessWidget {
       children: [
         Center(
           child: Container(
+            padding: EdgeInsets.all(Dimensions.space30),
             decoration: BoxDecoration(
-              color: MyColor.getTransparentColor(),
-              borderRadius: BorderRadius.circular(Dimensions.defaultRadius),
+              color: MyColor.lightTwoFaCardColor,
+              borderRadius: BorderRadius.circular(Dimensions.space20),
             ),
             child: Image.network(qrImage, width: 220, height: 220, errorBuilder: (ctx, object, trx) {
               return Image.asset(
@@ -43,86 +46,75 @@ class EnableQRCodeWidget extends StatelessWidget {
         //COPY
 
         const SizedBox(height: Dimensions.space15),
-        Text(
-          MyStrings.setupKey.tr,
-          style: boldExtraLarge.copyWith(color: MyColor.getHeadingTextColor()),
+        Row(
+          children: [
+            Expanded(
+                child: Divider(
+              color: MyColor.getBorderColor(),
+            )),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                MyStrings.orEnterCodeManually.tr,
+                style: theme.textTheme.labelLarge?.copyWith(fontSize: Dimensions.space13.sp, color: MyColor.getBodyTextColor()),
+              ),
+            ),
+            Expanded(
+                child: Divider(
+              color: MyColor.getBorderColor(),
+            )),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: Dimensions.space10),
-          child: GestureDetector(
-            onTap: () {
-              Clipboard.setData(ClipboardData(
-                text: secret,
-              )).then((_) {
-                CustomSnackBar.success(successList: [MyStrings.copiedToClipBoard.tr], duration: 2);
-              });
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(0.8),
-              child: DottedBorder(
-                borderType: BorderType.RRect,
-                color: MyColor.getBorderColor().withOpacity(0.5),
-                radius: const Radius.circular(Dimensions.defaultRadius),
-                child: Container(
-                  decoration: BoxDecoration(color: MyColor.white, borderRadius: BorderRadius.circular(Dimensions.defaultRadius - 1)),
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(Dimensions.space15),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          secret,
-                          style: boldExtraLarge.copyWith(
-                            fontSize: Dimensions.fontDefault + 5,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                        height: 50,
-                        child: FittedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.all(Dimensions.space5),
-                            child: Icon(
-                              Icons.copy,
-                              color: MyColor.getBorderColor().withOpacity(0.5),
-                              size: 10,
+        Row(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: Dimensions.space10),
+                child: Padding(
+                  padding: const EdgeInsets.all(0.8),
+                  child: Container(
+                    decoration: BoxDecoration(border: Border.all(color: MyColor.getBorderColor()), color: MyColor.getTransparentColor(), borderRadius: BorderRadius.circular(Dimensions.space12)),
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.space14, vertical: Dimensions.space12),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            secret,
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              fontSize: Dimensions.space15.sp,
                             ),
                           ),
                         ),
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-        const SizedBox(
-          height: Dimensions.space12,
-        ),
-
-        Center(
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(text: MyStrings.useQRCODETips2.tr, style: regularDefault.copyWith(color: MyColor.getHeadingTextColor())),
-                TextSpan(
-                    text: ' ${MyStrings.download}',
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () async {
-                        final Uri url = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en");
-
-                        if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-                          throw Exception('Could not launch $url');
-                        }
-                      },
-                    style: boldExtraLarge.copyWith(color: MyColor.getErrorColor())),
-              ],
+            GestureDetector(
+              onTap: () {
+                Clipboard.setData(ClipboardData(
+                  text: secret,
+                )).then((_) {
+                  CustomSnackBar.success(successList: [MyStrings.copiedToClipBoard.tr], duration: 2);
+                });
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: Dimensions.space5.w),
+                padding: EdgeInsets.all(Dimensions.space12),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.space12), color: MyColor.lightTwoFaCardColor),
+                child: MyAssetImageWidget(
+                  assetPath: MyImages.copyCode,
+                  isSvg: true,
+                  height: Dimensions.space24.h,
+                  width: Dimensions.space24.h,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );

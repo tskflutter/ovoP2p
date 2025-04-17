@@ -60,7 +60,7 @@ class SplashController extends GetxController {
       });
     } else {
       Future.delayed(const Duration(seconds: 1), () {
-        Get.offAndToNamed(RouteHelper.loginScreen);
+        Get.offAndToNamed(RouteHelper.bottomNavBar);
       });
     }
   }

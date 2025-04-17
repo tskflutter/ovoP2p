@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
@@ -19,7 +20,6 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
-    
     Get.put(ProfileRepo());
     final controller = Get.put(ProfileController(profileRepo: Get.find()));
 
@@ -31,14 +31,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<ProfileController>(
-      builder: (controller) => Scaffold(
-        appBar: CustomAppBar(
-          isShowBackBtn: true,
-          title: MyStrings.editProfile.tr,
-        ),
+      builder: (controller) => MyCustomScaffold(
+        pageTitle: MyStrings.editProfile.tr,
         body: controller.isLoading
             ? const CustomLoader()
             : Stack(

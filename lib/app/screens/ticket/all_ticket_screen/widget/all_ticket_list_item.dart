@@ -18,25 +18,14 @@ class AllTicketListItem extends StatelessWidget {
   final Color priorityColor;
   final String time;
 
-  const AllTicketListItem({super.key,
-      required this.ticketNumber,
-      required this.subject,
-      required this.status,
-      required this.priority,
-      required this.statusColor,
-      required this.priorityColor,
-      required this.time
-  });
+  const AllTicketListItem({super.key, required this.ticketNumber, required this.subject, required this.status, required this.priority, required this.statusColor, required this.priorityColor, required this.time});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: Dimensions.space10, vertical: Dimensions.space15),
-      decoration: BoxDecoration(
-        color: theme.cardColor,
-        borderRadius: BorderRadius.circular(Dimensions.mediumRadius)
-      ),
+      decoration: BoxDecoration(color: MyColor.pcBackground, borderRadius: BorderRadius.circular(Dimensions.mediumRadius)),
       child: Column(
         children: [
           Row(
@@ -45,8 +34,7 @@ class AllTicketListItem extends StatelessWidget {
             children: [
               Flexible(
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.only(end: Dimensions.space10),
+                  padding: const EdgeInsetsDirectional.only(end: Dimensions.space10),
                   child: Column(
                     children: [
                       CardColumn(
@@ -75,10 +63,7 @@ class AllTicketListItem extends StatelessWidget {
               PriorityBadge(text: priority, color: priorityColor),
               Text(
                 time,
-                style: regularDefault.copyWith(
-                    fontSize: Dimensions.fontSmall,
-                    fontStyle: FontStyle.italic,
-                    color: MyColor.getBodyTextColor()),
+                style: regularDefault.copyWith(fontSize: Dimensions.fontSmall, fontStyle: FontStyle.italic, color: MyColor.getBodyTextColor()),
               ),
             ],
           )

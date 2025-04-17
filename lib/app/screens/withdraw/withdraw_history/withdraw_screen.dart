@@ -56,7 +56,7 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
     return GetBuilder<WithdrawHistoryController>(
       builder: (controller) {
         return MyCustomScaffold(
-          pageTitle: MyStrings.withdraw.tr,
+          pageTitle: MyStrings.withdrawals.tr,
           actionButton: [
             GestureDetector(
               onTap: () {

@@ -31,7 +31,7 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return AnimatedBuilder(
       animation: _animationController!,
@@ -46,11 +46,12 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
             widget.value == false ? widget.onChanged(false) : widget.onChanged(true);
           },
           child: Container(
-            width: 45.0,
-            height: 28.0,
+            width: 48.0,
+            height: 24.0,
             decoration: BoxDecoration(
+              gradient: LinearGradient(colors: MyColor.cardGradiant),
               borderRadius: BorderRadius.circular(24.0),
-              color: widget.value ? MyColor.getPrimaryColor() : MyColor.getPrimaryColor().withOpacity(0.2),
+              color: widget.value ? MyColor.getPrimaryColor() : MyColor.getPrimaryColor().withValues(alpha: .2),
             ),
             child: Padding(
               padding: const EdgeInsetsDirectional.only(top: 2.0, bottom: 2.0, start: 2.0, end: 2.0),

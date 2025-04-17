@@ -34,6 +34,7 @@ class CustomTextField extends StatefulWidget {
   final bool isRequired;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final TextStyle? textStyle;
 
   const CustomTextField({
     super.key,
@@ -44,6 +45,7 @@ class CustomTextField extends StatefulWidget {
     required this.onChanged,
     this.hintText,
     this.controller,
+    this.textStyle,
     this.focusNode,
     this.nextFocus,
     this.validator,
@@ -75,7 +77,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   bool obscureText = true;
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return widget.needOutlineBorder
         ? widget.animatedLabel
@@ -95,7 +97,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
                   labelText: widget.labelText?.tr ?? '',
-                  labelStyle: regularDefault.copyWith(color: Theme.of(context).textTheme.titleLarge?.color?.withOpacity(0.8)),
+                  labelStyle: widget.textStyle ?? regularDefault.copyWith(color: Theme.of(context).textTheme.titleLarge?.color?.withOpacity(0.8)),
                   fillColor: widget.fillColor,
                   filled: true,
                   border: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getBorderColor()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
@@ -131,6 +133,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     text: widget.labelText.toString(),
                     isRequired: widget.isRequired,
                     instructions: widget.instructions,
+                    textStyle: widget.textStyle,
                   ),
                   const SizedBox(height: Dimensions.textToTextSpace),
                   TextFormField(
@@ -151,8 +154,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 5),
                       hintText: widget.hintText != null ? widget.hintText!.tr : '',
-                      hintStyle: regularSmall.copyWith(color: MyColor.getBodyTextColor().withOpacity(0.7)),
-                      fillColor: MyColor.getTransparentColor(),
+                      hintStyle: regularSmall.copyWith(color: MyColor.getBodyTextColor().withValues(alpha: .7)),
+                      fillColor: widget.fillColor,
                       filled: true,
                       border: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getBorderColor()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(width: 0.5, color: MyColor.getBorderColor()), borderRadius: BorderRadius.circular(Dimensions.defaultRadius)),

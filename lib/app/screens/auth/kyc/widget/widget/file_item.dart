@@ -16,7 +16,7 @@ class ConfirmKycFileItem extends StatefulWidget {
 
 class _ConfirmKycFileItemState extends State<ConfirmKycFileItem> {
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<KycController>(builder: (controller) {
       KycFormModel? model = controller.formList[widget.index];

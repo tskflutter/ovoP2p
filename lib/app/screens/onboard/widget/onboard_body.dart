@@ -10,7 +10,7 @@ class OnBoardBody extends StatelessWidget {
   OnBoardBody({super.key, required this.data});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -18,17 +18,6 @@ class OnBoardBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            height: context.isLandscape ? width / 2 : height / 2,
-            child: Center(
-                child: data.isSvg
-                    ? SvgPicture.asset(
-                        data.image,
-                        fit: BoxFit.cover,
-                      )
-                    : const SizedBox.shrink()), // add image.network
-          ),
-          const SizedBox(height: Dimensions.space40),
           Text(
             data.title,
             style: title.copyWith(fontSize: 24, fontWeight: FontWeight.w400),

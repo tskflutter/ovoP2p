@@ -16,14 +16,14 @@ class TicketStatusWidget extends StatelessWidget {
   const TicketStatusWidget({super.key, required this.controller});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
-      margin: const EdgeInsets.only(bottom:Dimensions.space15),
+      margin: const EdgeInsets.only(bottom: Dimensions.space15),
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: theme.cardColor,
+        color: MyColor.pcBackground,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,22 +37,16 @@ class TicketStatusWidget extends StatelessWidget {
                 Expanded(
                   child: CardColumn(
                     isOnlyHeader: false,
-                    header:
-                        "[${MyStrings.ticket.tr}#${controller.model.data?.myTickets?.ticket ?? ''}]",
+                    header: "[${MyStrings.ticket.tr}#${controller.model.data?.myTickets?.ticket ?? ''}]",
                     body: controller.model.data?.myTickets?.subject ?? '',
                     bodyMaxLine: 3,
                     space: 7,
-                    headerTextStyle:
-                        semiBoldDefault.copyWith(color: MyColor.getBodyTextColor()),
-                    bodyTextStyle: regularDefault.copyWith(
-                        color: MyColor.getBodyTextColor().withOpacity(.9)),
+                    headerTextStyle: semiBoldDefault.copyWith(color: MyColor.getBodyTextColor()),
+                    bodyTextStyle: regularDefault.copyWith(color: MyColor.getBodyTextColor().withOpacity(.9)),
                   ),
                 ),
                 const SizedBox(width: 25),
-                StatusBadge(
-                  text: TicketHelper.getStatusText(controller.model.data?.myTickets?.status ?? '0'),
-                  color: TicketHelper.getStatusColor(controller.model.data?.myTickets?.status ?? "0")
-                )
+                StatusBadge(text: TicketHelper.getStatusText(controller.model.data?.myTickets?.status ?? '0'), color: TicketHelper.getStatusColor(controller.model.data?.myTickets?.status ?? "0"))
               ],
             ),
           ),

@@ -18,7 +18,7 @@ class LanguageCard extends StatelessWidget {
   const LanguageCard({super.key, required this.index, required this.selectedIndex, this.isShowTopRight = false, required this.langeName, required this.imagePath});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Stack(
       clipBehavior: Clip.none,
@@ -26,7 +26,7 @@ class LanguageCard extends StatelessWidget {
         Container(
           padding: const EdgeInsetsDirectional.symmetric(vertical: Dimensions.space25),
           alignment: Alignment.center,
-          decoration: BoxDecoration(color: theme.cardColor, borderRadius: BorderRadius.circular(Dimensions.defaultRadius), boxShadow: MyUtils.getCardShadow()),
+          decoration: BoxDecoration(color: MyColor.pcBackground, borderRadius: BorderRadius.circular(Dimensions.defaultRadius), boxShadow: MyUtils.getCardShadow()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 
@@ -36,21 +37,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<MyLanguageController>(
-      builder: (controller) => Scaffold(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        appBar: CustomAppBar(
-          isShowBackBtn: true,
-          title: MyStrings.language.tr,
-        ),
+      builder: (controller) => MyCustomScaffold(
+        pageTitle: MyStrings.language.tr,
         body: controller.isLoading
             ? const CustomLoader()
             : controller.langList.isEmpty
                 ? NoDataWidget()
                 : SingleChildScrollView(
-                    padding: Dimensions.screenPadding,
                     child: GridView.builder(
                       shrinkWrap: true,
                       addAutomaticKeepAlives: true,
@@ -73,7 +69,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       ),
                     ),
                   ),
-        bottomNavigationBar: Padding(
+        floatingActionButton: Padding(
           padding: const EdgeInsetsDirectional.symmetric(vertical: Dimensions.space15, horizontal: Dimensions.space15),
           child: CustomElevatedBtn(
             text: MyStrings.confirm.tr,

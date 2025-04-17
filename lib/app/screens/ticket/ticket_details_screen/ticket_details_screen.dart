@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
@@ -25,7 +26,7 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
   void initState() {
     String ticketId = Get.arguments[0];
     title = Get.arguments[1];
-    
+
     Get.put(SupportRepo());
     var controller = Get.put(TicketDetailsController(repo: Get.find(), ticketId: ticketId));
 
@@ -36,56 +37,48 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<TicketDetailsController>(
-      builder: (controller) => Scaffold(
-        appBar: CustomAppBar(
-          title: MyStrings.replyTicket,
-          action: [
+      builder: (controller) => MyCustomScaffold(
+          pageTitle: MyStrings.replyTicket,
+          actionButton: [
             if (controller.model.data?.myTickets?.status != '3')
               Padding(
                 padding: const EdgeInsets.only(right: Dimensions.space20),
                 child: TextButton(
-                  onPressed: () {
+                    onPressed: () {
                       controller.closeTicket(controller.model.data?.myTickets?.id.toString() ?? '-1');
                     },
                     child: Text(MyStrings.close, style: regularExtraLarge.copyWith(color: MyColor.getErrorColor()))),
               )
           ],
-        ),
-        body: controller.isLoading ?
-        const CustomLoader(isFullScreen: true) :
-        SingleChildScrollView(
-          padding: Dimensions.screenPadding,
-          child: Container(
-            // padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                TicketStatusWidget(controller: controller),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: theme.cardColor,
+          body: controller.isLoading
+              ? const CustomLoader(isFullScreen: true)
+              : SingleChildScrollView(
+                  child: Container(
+                    // padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      children: [
+                        TicketStatusWidget(controller: controller),
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: MyColor.pcBackground,
+                          ),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [ReplySection(), MessageListSection()],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ReplySection(),
-                      MessageListSection()
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        )
-      ),
+                )),
     );
   }
 }
-

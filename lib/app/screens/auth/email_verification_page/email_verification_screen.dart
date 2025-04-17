@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
+import 'package:ovolutter/app/components/text/header_text.dart';
 import 'package:ovolutter/core/route/route.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
@@ -43,13 +46,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return WillPopWidget(
       nextRoute: RouteHelper.loginScreen,
-      child: Scaffold(
-          backgroundColor: theme.scaffoldBackgroundColor,
-          appBar: CustomAppBar(fromAuth: true, title: MyStrings.emailVerification.tr, isShowBackBtn: true, isShowActionBtn: false, bgColor: theme.appBarTheme.backgroundColor),
+      child: MyCustomScaffold(
+          pageTitle: "",
           body: GetBuilder<EmailVerificationController>(
             builder: (controller) => controller.isLoading
                 ? Center(child: CircularProgressIndicator(color: MyColor.getPrimaryColor()))
@@ -61,18 +63,17 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const SizedBox(height: Dimensions.space30),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(color: MyColor.getPrimaryColor().withOpacity(.075), shape: BoxShape.circle),
-                            child: CustomSvgPicture(image: MyImages.emailVerifyImage, height: 50, width: 50, color: MyColor.getPrimaryColor()),
+                          CustomSvgPicture(
+                            image: MyImages.emailVerifyImage,
+                            height: Dimensions.space100.h,
+                            width: Dimensions.space100.w,
                           ),
                           const SizedBox(height: Dimensions.space50),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .07),
-                            child: SmallText(text: MyStrings.viaEmailVerify.tr, maxLine: 3, textAlign: TextAlign.center, textStyle: regularDefault.copyWith(color: MyColor.getBodyTextColor())),
+                            child: Text(MyStrings.pleaseCheckEmail.tr, textAlign: TextAlign.center, style: theme.textTheme.headlineLarge?.copyWith(color: MyColor.getHeadingTextColor())),
                           ),
+                          Text("${MyStrings.viaEmailVerify.tr} aabsdbasbdbdsa@gmail.com", textAlign: TextAlign.center, style: regularDefault.copyWith(color: MyColor.getBodyTextColor())),
                           const SizedBox(height: 30),
                           OTPFieldWidget(
                             onChanged: (value) {
@@ -84,7 +85,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                             isLoading: controller.submitLoading,
                             text: MyStrings.verify.tr,
                             onTap: () {
-                              controller.verifyEmail(controller.currentText);
+                              Get.toNamed(RouteHelper.bottomNavBar);
+                              // controller.verifyEmail(controller.currentText);
                             },
                           ),
                           const SizedBox(height: Dimensions.space30),
@@ -99,7 +101,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                                       onTap: () {
                                         controller.sendCodeAgain();
                                       },
-                                      child: Text(MyStrings.resendCode.tr, style: regularDefault.copyWith(color: MyColor.getPrimaryColor(), decoration: TextDecoration.underline)),
+                                      child: Text(MyStrings.resendCode.tr, style: regularDefault.copyWith(color: MyColor.getSecondaryColor(), decoration: TextDecoration.underline)),
                                     )
                             ],
                           )

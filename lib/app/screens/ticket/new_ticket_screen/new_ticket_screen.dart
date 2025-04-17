@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/card/custom_rounded_card.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/core/helper/string_format_helper.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
@@ -26,7 +28,6 @@ class NewTicketScreen extends StatefulWidget {
 class _NewTicketScreenState extends State<NewTicketScreen> {
   @override
   void initState() {
-    
     Get.put(SupportRepo());
     Get.put(NewTicketController(repo: Get.find()));
 
@@ -40,23 +41,17 @@ class _NewTicketScreenState extends State<NewTicketScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<NewTicketController>(
-      builder: (controller) => Scaffold(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        appBar: CustomAppBar(
-          title: MyStrings.addNewTicket.tr,
-        ),
+      builder: (controller) => MyCustomScaffold(
+        pageTitle: MyStrings.addNewTicket.tr,
         body: controller.isLoading
             ? const Center(
                 child: CircularProgressIndicator(),
               )
             : SingleChildScrollView(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.all(10),
-                  width: MediaQuery.of(context).size.width,
+                child: CustomRoundedCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -74,14 +69,14 @@ class _NewTicketScreenState extends State<NewTicketScreen> {
                       ),
                       const SizedBox(height: Dimensions.textToTextSpace),
                       const SizedBox(height: Dimensions.textToTextSpace),
-                      LabelText(text: MyStrings.priority.tr),
+                      LabelText(text: MyStrings.priority.tr, textStyle: theme.textTheme.titleMedium?.copyWith(fontSize: Dimensions.space12, color: MyColor.getBodyTextColor())),
                       const SizedBox(height: Dimensions.space5),
                       DropDownTextFieldContainer(
                         color: MyColor.getTransparentColor(),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20, right: 10),
                           child: DropdownButton<String>(
-                            dropdownColor: MyColor.getBorderColor().withOpacity(.2),
+                            dropdownColor: MyColor.getBorderColor(),
                             value: controller.selectedPriority,
                             elevation: 8,
                             icon: SvgPicture.asset(MyImages.arrowDown),
@@ -97,7 +92,7 @@ class _NewTicketScreenState extends State<NewTicketScreen> {
                                 value: value,
                                 child: Text(
                                   value,
-                                  style: regularDefault.copyWith(fontSize: Dimensions.fontDefault),
+                                  style: regularDefault.copyWith(fontSize: Dimensions.fontDefault, color: MyColor.getBodyTextColor()),
                                 ),
                               );
                             }).toList(),
@@ -188,7 +183,7 @@ class DropDownTextFieldContainer extends StatelessWidget {
   const DropDownTextFieldContainer({super.key, required this.child, this.color = MyColor.black});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(

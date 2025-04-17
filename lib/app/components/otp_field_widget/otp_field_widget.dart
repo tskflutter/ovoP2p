@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import '../../../core/utils/dimensions.dart';
 import '../../../core/utils/my_color.dart';
 
 class OTPFieldWidget extends StatelessWidget {
-  const OTPFieldWidget({super.key,required this.onChanged});
+  const OTPFieldWidget({super.key, required this.onChanged});
 
   final ValueChanged<String>? onChanged;
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Dimensions.space30),
@@ -23,22 +24,9 @@ class OTPFieldWidget extends StatelessWidget {
         obscuringCharacter: '*',
         blinkWhenObscuring: false,
         animationType: AnimationType.fade,
-        pinTheme: PinTheme(
-          shape: PinCodeFieldShape.box,
-          borderWidth: 1,
-          borderRadius: BorderRadius.circular(5),
-          fieldHeight: 40,
-          fieldWidth: 40,
-          inactiveColor:  MyColor.getBorderColor(),
-          inactiveFillColor: MyColor.getScaffoldBackgroundColor(),
-          activeFillColor: MyColor.getScaffoldBackgroundColor(),
-          activeColor: MyColor.getPrimaryColor(),
-          selectedFillColor: MyColor.getScaffoldBackgroundColor(),
-          selectedColor: MyColor.getPrimaryColor()
-        ),
-        cursorColor: MyColor.black,
-        animationDuration:
-        const Duration(milliseconds: 100),
+        pinTheme: PinTheme(shape: PinCodeFieldShape.box, borderWidth: .5, borderRadius: BorderRadius.circular(Dimensions.space12), fieldHeight: Dimensions.space55.h, fieldWidth: Dimensions.space45.w, inactiveColor: MyColor.getBorderColor(), inactiveFillColor: MyColor.getTransparentColor(), activeFillColor: MyColor.getTransparentColor(), activeColor: MyColor.getSecondaryColor(), selectedFillColor: MyColor.getTransparentColor(), selectedColor: MyColor.getSecondaryColor()),
+        cursorColor: MyColor.getPrimaryColor(),
+        animationDuration: const Duration(milliseconds: 100),
         enableActiveFill: true,
         keyboardType: TextInputType.number,
         beforeTextPaste: (text) {

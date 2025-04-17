@@ -65,42 +65,42 @@ class MyStyles {
       ),
       titleLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleLargeSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       titleMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleMediumSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       titleSmall: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.titleSmallSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.bodyTextColor : DarkThemeColors.bodyTextColor,
       ),
       headlineLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineLargeSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       headlineMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineMediumSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       headlineSmall: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.headlineSmallSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.headingTextColor : DarkThemeColors.headingTextColor,
       ),
       displayLarge: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.displayLargeSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.displayTextColor : DarkThemeColors.displayTextColor,
       ),
       displayMedium: (MyFonts.displayTextStyle).copyWith(
         fontSize: MyFonts.displayMediumSize,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: isLightTheme ? LightThemeColors.displayTextColor : DarkThemeColors.displayTextColor,
       ),
       displaySmall: (MyFonts.displayTextStyle).copyWith(

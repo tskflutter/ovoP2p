@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/style.dart';
 import 'package:ovolutter/core/utils/util.dart';
@@ -33,7 +34,6 @@ class _KycScreenState extends State<KycScreen> {
 
   @override
   void initState() {
-    
     Get.put(KycRepo());
     Get.put(KycController(repo: Get.find()));
     super.initState();
@@ -44,18 +44,15 @@ class _KycScreenState extends State<KycScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<KycController>(
       builder: (controller) => GestureDetector(
         onTap: () {
           FocusScope.of(context).unfocus();
         },
-        child: Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          appBar: const CustomAppBar(
-            title: MyStrings.kycVerification,
-          ),
+        child: MyCustomScaffold(
+          pageTitle: MyStrings.kycVerification.tr,
           body: SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -72,7 +69,8 @@ class _KycScreenState extends State<KycScreen> {
                                   padding: const EdgeInsets.all(Dimensions.space10),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Theme.of(context).cardColor,
+                                      borderRadius: BorderRadius.circular(Dimensions.space20),
+                                      color: MyColor.pcBackground,
                                     ),
                                     padding: const EdgeInsets.all(Dimensions.space15),
                                     child: Form(

@@ -3,6 +3,7 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
 import 'package:ovolutter/app/components/buttons/category_button.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
 import 'package:ovolutter/app/components/custom_loader/custom_loader.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
@@ -32,21 +33,17 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   }
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return Scaffold(
-        appBar: const CustomAppBar(
-          title: MyStrings.privacyPolicy,
-          isShowActionBtn: false,
-        ),
+    return MyCustomScaffold(
+        pageTitle: MyStrings.privacyPolicy.tr,
         body: GetBuilder<PrivacyController>(
           builder: (controller) => SizedBox(
             width: MediaQuery.of(context).size.width,
             child: controller.isLoading
                 ? const CustomLoader()
                 : Container(
-                    margin: EdgeInsets.symmetric(horizontal: Dimensions.space10, vertical: Dimensions.space10),
-                    color: Theme.of(context).cardColor,
+                    color: MyColor.pcBackground,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

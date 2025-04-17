@@ -7,25 +7,28 @@ import 'package:get/get.dart';
 class OnBoardController extends GetxController {
   List<OnBoardModel> appBanners = [
     OnBoardModel(
-      title: "Welcome to Surf.",
-      subtitle: "I provide essential stuff for your ui designs every tuesday!",
-      image: MyImages.onBoardImageThree,
+      title: "Trade with Confidence ",
+      bgImage: MyImages.onBoardImageOneBg,
+      subtitle: "Escrow-protected transactions ensure safety for every trade!",
+      frontImage: MyImages.onBoardImageOneFront,
       isSvg: true,
       bgcolor: const Color(0xffb25cea),
       icon: Icons.photo,
     ),
     OnBoardModel(
-      image: MyImages.onBoardImageOne,
-      title: "Design Template uploads Every Tuesday!.",
-      subtitle: "Make sure to take a look my uplab profile every tuesday",
+      frontImage: MyImages.onBoardImageTwoFront,
+      bgImage: MyImages.onBoardImageTwoBg,
+      title: "Pay Your Way",
+      subtitle: "Choose from multiple payment methods tailored to your needs.",
       isSvg: true,
       bgcolor: const Color(0xffff5c9d),
       icon: Icons.favorite,
     ),
     OnBoardModel(
-      title: "Download now!",
-      subtitle: "You can follow me if you wantand comment on any to get some freebies",
-      image: MyImages.onBoardImageTwo,
+      title: "Stay Updated with Prices",
+      subtitle: "Track cryptocurrency prices and make informed trades",
+      frontImage: MyImages.onBoardImageThreeFront,
+      bgImage: MyImages.onBoardImageThreeBg,
       isSvg: true,
       bgcolor: const Color(0xff006bcc),
       icon: Icons.share,
@@ -37,7 +40,11 @@ class OnBoardController extends GetxController {
 
   void setCurrentIndex(int index) {
     currentIndex = index;
-    // controller?.animateTo((controller!.page!.toInt() + 1), duration: Duration(seconds: 1), curve: Curves.linear);
+    controller?.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOut,
+    );
     update();
   }
 

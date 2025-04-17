@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/model/authorization/authorization_response_model.dart';
@@ -7,27 +6,28 @@ import 'package:ovolutter/app/components/snack_bar/show_custom_snackbar.dart';
 import 'package:get/get.dart';
 import 'package:ovolutter/data/repo/account/change_password_repo.dart';
 
-
-class ChangePasswordController extends GetxController  {
-
+class ChangePasswordController extends GetxController {
   ChangePasswordRepo changePasswordRepo;
   ChangePasswordController({required this.changePasswordRepo});
 
-
   String? currentPass, password, confirmPass;
 
-  bool isLoading      = false;
+  bool isLoading = false;
   List<String> errors = [];
 
-  TextEditingController passController        = TextEditingController();
+  TextEditingController passController = TextEditingController();
   TextEditingController currentPassController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
 
   FocusNode currentPassFocusNode = FocusNode();
-  FocusNode passwordFocusNode    = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
   FocusNode confirmPassFocusNode = FocusNode();
 
-
+  bool passValidation = false;
+  bool upperCase = false;
+  bool lowerCase = false;
+  bool number = false;
+  bool specialCharacter = false;
 
   addError({required String error}) {
     if (!errors.contains(error)) {
@@ -43,9 +43,8 @@ class ChangePasswordController extends GetxController  {
     }
   }
 
-  bool submitLoading=false;
+  bool submitLoading = false;
   changePassword() async {
-
     String currentPass = currentPassController.text.toString();
     String password = passController.text.toString();
 
@@ -53,16 +52,16 @@ class ChangePasswordController extends GetxController  {
     update();
     ResponseModel responseModel = await changePasswordRepo.changePassword(currentPass, password);
 
-    if(responseModel.statusCode == 200){
+    if (responseModel.statusCode == 200) {
       AuthorizationResponseModel model = AuthorizationResponseModel.fromJson(responseModel.responseJson);
-      if(model.status?.toLowerCase() == MyStrings.success.toLowerCase()){
+      if (model.status?.toLowerCase() == MyStrings.success.toLowerCase()) {
         currentPassController.clear();
         passController.clear();
         confirmPassController.clear();
-      } else{
-        CustomSnackBar.error(errorList: model.message??[MyStrings.requestFail]);
+      } else {
+        CustomSnackBar.error(errorList: model.message ?? [MyStrings.requestFail]);
       }
-    } else{
+    } else {
       CustomSnackBar.error(errorList: [responseModel.message]);
     }
 
@@ -71,10 +70,10 @@ class ChangePasswordController extends GetxController  {
   }
 
   void clearData() {
-    isLoading=false;
+    isLoading = false;
     errors.clear();
-    currentPassController.text='';
-    passController.text='';
-    confirmPassController.text='';
+    currentPassController.text = '';
+    passController.text = '';
+    confirmPassController.text = '';
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/app-bar/custom_appbar.dart';
+import 'package:ovolutter/app/components/card/my_custom_scaffold.dart';
+import 'package:ovolutter/app/screens/bottom_nav_section/home/widgets/user_data.dart';
 import 'package:ovolutter/app/screens/bottom_nav_section/menu/widget/delete_account_bottom_sheet_body.dart';
 import 'package:ovolutter/app/screens/bottom_nav_section/menu/widget/menu_card_widget.dart';
 import 'package:get/get.dart';
@@ -8,6 +10,7 @@ import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_images.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
+import 'package:ovolutter/core/utils/util_exporter.dart';
 
 import 'package:ovolutter/data/controller/menu/my_menu_controller.dart';
 import 'package:ovolutter/data/repo/auth/general_setting_repo.dart';
@@ -44,17 +47,36 @@ class _MenuScreenState extends State<MenuScreen> {
     return GetBuilder<MyMenuController>(
         builder: (menuController) => WillPopWidget(
             nextRoute: RouteHelper.bottomNavBar,
-            child: Scaffold(
-              backgroundColor: theme.scaffoldBackgroundColor,
-              appBar: const CustomAppBar(title: MyStrings.menu),
+            child: MyCustomScaffold(
+              showAppBar: false,
               body: GetBuilder<MyMenuController>(
                 builder: (controller) => SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(vertical: Dimensions.space12, horizontal: Dimensions.space15),
                   child: Column(children: [
+                    spaceDown(Dimensions.space100),
+                    Container(
+                      padding: EdgeInsets.all(Dimensions.space16),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.space20), border: Border.all(color: MyColor.getBorderColor()), color: MyColor.pcBackground),
+                      child: Row(
+                        children: [
+                          Expanded(child: UserBio(name: "John Doe", email: "@john_doe007")),
+                          Container(
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.space100), color: MyColor.getSuccessColor().withValues(alpha: .3)),
+                            padding: EdgeInsets.symmetric(vertical: Dimensions.space7, horizontal: Dimensions.space20),
+                            child: Center(
+                              child: Text(MyStrings.verified.tr,
+                                  style: theme.textTheme.titleSmall?.copyWith(
+                                    color: MyColor.getSuccessColor(),
+                                  )),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    spaceDown(Dimensions.space16.h),
                     MenuCardWidget(
                       child: Column(
                         children: [
-                          MenuItems(imageSrc: MyImages.usesPofile, label: MyStrings.profile.tr, onPressed: () => Get.toNamed(RouteHelper.profileScreen)),
+                          MenuItems(imageSrc: MyImages.profileRounded, label: MyStrings.profile.tr, onPressed: () => Get.toNamed(RouteHelper.profileScreen)),
                           CustomDivider(
                             space: Dimensions.space10,
                           ),
@@ -62,18 +84,22 @@ class _MenuScreenState extends State<MenuScreen> {
                           CustomDivider(
                             space: Dimensions.space10,
                           ),
-                          MenuItems(imageSrc: MyImages.twoFactorAuth, label: MyStrings.twoFactorAuth, onPressed: () => Get.toNamed(RouteHelper.twoFactorSetupScreen)),
+                          MenuItems(imageSrc: MyImages.kyc, label: MyStrings.kycVerification, onPressed: () => Get.toNamed(RouteHelper.changePasswordScreen)),
                           CustomDivider(
                             space: Dimensions.space10,
                           ),
-                          MenuItems(imageSrc: MyImages.notification, label: MyStrings.notifications, onPressed: () => Get.toNamed(RouteHelper.notificationScreen)),
+                          MenuItems(imageSrc: MyImages.twoFa, label: MyStrings.twoFactorAuth, onPressed: () => Get.toNamed(RouteHelper.twoFactorSetupScreen)),
+                          CustomDivider(
+                            space: Dimensions.space10,
+                          ),
+                          MenuItems(imageSrc: MyImages.notificationSvg, label: MyStrings.notifications, onPressed: () => Get.toNamed(RouteHelper.notificationScreen)),
                         ],
                       ),
                     ),
                     MenuCardWidget(
                       child: Column(
                         children: [
-                          MenuItems(imageSrc: MyImages.deposit, label: MyStrings.deposit, onPressed: () => Get.toNamed(RouteHelper.depositsHistoryScreen)),
+                          MenuItems(imageSrc: MyImages.deposit, label: MyStrings.depositHistory.tr, onPressed: () => Get.toNamed(RouteHelper.depositScreen)),
                           CustomDivider(
                             space: Dimensions.space10,
                           ),
@@ -82,13 +108,21 @@ class _MenuScreenState extends State<MenuScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  MenuItems(imageSrc: MyImages.withdraw, label: MyStrings.withdraw.tr, onPressed: () => Get.toNamed(RouteHelper.withdrawScreen)),
+                                  MenuItems(imageSrc: MyImages.withdraw, label: MyStrings.myWithdrawals.tr, onPressed: () => Get.toNamed(RouteHelper.myWithdrawalsScreen)),
                                   CustomDivider(
                                     space: Dimensions.space10,
                                   ),
                                 ],
                               )),
-                          MenuItems(imageSrc: MyImages.transaction, label: MyStrings.transaction.tr, onPressed: () => Get.toNamed(RouteHelper.transactionHistoryScreen)),
+                          //  MenuItems(imageSrc: MyImages.transaction, label: MyStrings.transaction.tr, onPressed: () => Get.toNamed(RouteHelper.wi)),
+                          // CustomDivider(
+                          //   space: Dimensions.space10,
+                          // ),
+                          MenuItems(imageSrc: MyImages.ads, label: MyStrings.advertisement.tr, onPressed: () => Get.toNamed(RouteHelper.advertisingScreen)),
+                          // CustomDivider(
+                          //   space: Dimensions.space10,
+                          // ),
+                          // MenuItems(imageSrc: MyImages.refferal, label: MyStrings.refferal.tr, onPressed: () => Get.toNamed(RouteHelper.ref)),
                         ],
                       ),
                     ),
@@ -133,9 +167,18 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                         MenuItems(
                             imageSrc: MyImages.policy,
-                            label: MyStrings.privacyPolicy.tr,
+                            label: MyStrings.policies.tr,
                             onPressed: () {
                               Get.toNamed(RouteHelper.privacyScreen);
+                            }),
+                        CustomDivider(
+                          space: Dimensions.space10,
+                        ),
+                        MenuItems(
+                            imageSrc: MyImages.logout,
+                            label: MyStrings.logout.tr,
+                            onPressed: () {
+                              controller.logout();
                             }),
                       ],
                     )),
@@ -152,19 +195,6 @@ class _MenuScreenState extends State<MenuScreen> {
                                   child: const DeleteAccountBottomsheetBody(),
                                 ).customBottomSheet(context);
                               }),
-                          CustomDivider(
-                            space: Dimensions.space10,
-                          ),
-                          controller.logoutLoading
-                              ? Align(
-                                  alignment: Alignment.center,
-                                  child: SizedBox(
-                                    height: 20,
-                                    width: 20,
-                                    child: CircularProgressIndicator(color: MyColor.getPrimaryColor(), strokeWidth: 2.00),
-                                  ),
-                                )
-                              : MenuItems(imageSrc: MyImages.logout, label: MyStrings.logout.tr, onPressed: () => controller.logout()),
                         ],
                       ),
                     ),

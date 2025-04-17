@@ -7,20 +7,14 @@ import '../../../core/utils/my_color.dart';
 import '../buttons/custom_circle_animated_button.dart';
 
 class BottomSheetTopRow extends StatelessWidget {
-
   final String header;
   final double bottomSpace;
   final Color bgColor;
 
-  const BottomSheetTopRow({
-    super.key,
-    required this.header,
-    this.bottomSpace = 10,
-    this.bgColor = MyColor.lightBackground
-  });
+  const BottomSheetTopRow({super.key, required this.header, this.bottomSpace = 10, this.bgColor = MyColor.lightPrimary});
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +22,15 @@ class BottomSheetTopRow extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(header.tr, style: regularDefault.copyWith(fontWeight: FontWeight.w600)),
+            Text(header.tr, style: regularDefault.copyWith(fontWeight: FontWeight.w600, color: MyColor.getHeadingTextColor())),
             CustomCircleAnimatedButton(
-              onTap: (){
+              onTap: () {
                 Get.back();
               },
               height: 30,
               width: 30,
               backgroundColor: bgColor,
-              child:  Icon(Icons.clear, color: MyColor.black, size: 15),
+              child: Icon(Icons.clear, color: MyColor.getHeadingTextColor(), size: 15),
             )
           ],
         ),

@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:ovolutter/app/screens/auth/profile_complete/widget/build_circle_widget.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ovolutter/app/components/circle_image_button.dart';
@@ -47,27 +46,28 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         )),
                   )
                 : buildImage(),
-            widget.isEdit
-                ? Positioned(
-                    bottom: 0,
-                    right: -4,
-                    child: GestureDetector(
-                        onTap: () {
-                          _openGallery(context);
-                        },
-                        child: BuildCircleWidget(
-                            padding: 3,
-                            color: Colors.white,
-                            child: BuildCircleWidget(
-                                padding: 8,
-                                color: MyColor.getPrimaryColor(),
-                                child: Icon(
-                                  widget.isEdit ? Icons.add_a_photo : Icons.edit,
-                                  color: Colors.white,
-                                  size: 20,
-                                )))),
-                  )
-                : const SizedBox(),
+            // widget.isEdit
+            // ? Positioned(
+            //     bottom: 0,
+            //     right: -4,
+            //     child: GestureDetector(
+            //         onTap: () {
+            //           _openGallery(context);
+            //         },
+            //         child: BuildCircleWidget(
+            //             padding: 3,
+            //             color: Colors.white,
+            //             child: BuildCircleWidget(
+            //                 padding: 8,
+            //                 color: MyColor.getPrimaryColor(),
+            //                 child: Icon(
+            //                   widget.isEdit ? Icons.add_a_photo : Icons.edit,
+            //                   color: Colors.white,
+            //                   size: 20,
+            //                 )))),
+            //   )
+            //?
+            const SizedBox(),
           ],
         ),
       ),

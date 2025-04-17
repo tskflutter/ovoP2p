@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ovolutter/app/components/buttons/custom_elevated_button.dart';
 import 'package:ovolutter/app/components/text-field/custom_text_field.dart';
 import 'package:get/get.dart';
+import 'package:ovolutter/core/utils/my_color.dart';
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/core/utils/dimensions.dart';
 import 'package:ovolutter/data/controller/account/profile_controller.dart';
@@ -16,14 +17,14 @@ class EditProfileForm extends StatefulWidget {
 
 class _EditProfileFormState extends State<EditProfileForm> {
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return GetBuilder<ProfileController>(
       builder: (controller) => Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(vertical: Dimensions.space15, horizontal: Dimensions.space15),
         alignment: Alignment.center,
-        decoration: BoxDecoration(color: Theme.of(context).cardColor, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: MyColor.pcBackground, borderRadius: BorderRadius.circular(10)),
         child: Form(
           child: Column(
             children: [

@@ -15,6 +15,8 @@ class CustomElevatedBtn extends StatelessWidget {
   final double height;
   final Widget? icon;
   final bool isLoading;
+  final bool hasGradiant;
+  final TextStyle? textStyle;
 
   const CustomElevatedBtn({
     super.key,
@@ -22,12 +24,14 @@ class CustomElevatedBtn extends StatelessWidget {
     required this.onTap,
     this.radius = Dimensions.largeRadius,
     this.elevation = 0,
+    this.textStyle,
     this.bgColor = MyColor.lightPrimary,
     this.shadowColor = MyColor.lightPrimary,
     this.width = double.infinity,
     this.height = Dimensions.defaultButtonH,
     this.icon,
     this.isLoading = false,
+    this.hasGradiant = true,
     this.textColor = MyColor.white,
     this.borderColor = MyColor.transparent,
   });
@@ -47,9 +51,9 @@ class CustomElevatedBtn extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: bgColor, //
               elevation: elevation, //
-              surfaceTintColor: bgColor.withOpacity(0.5),
-              overlayColor: bgColor.withOpacity(0.1), // Set your splash color h
-              shadowColor: shadowColor.withOpacity(0.5),
+              surfaceTintColor: bgColor.withValues(alpha: 0.5),
+              overlayColor: bgColor.withValues(alpha: 0.1), // Set your splash color h
+              shadowColor: shadowColor.withValues(alpha: 0.5),
               shape: RoundedRectangleBorder(side: BorderSide(color: borderColor, width: 1), borderRadius: BorderRadius.circular(radius)),
               maximumSize: Size.fromHeight(height),
               minimumSize: Size(width, height),
@@ -63,34 +67,42 @@ class CustomElevatedBtn extends StatelessWidget {
                   )
                 : Text(
                     text, //
-                    style: theme.textTheme.bodyLarge?.copyWith(color: textColor),
+                    style: textStyle ?? theme.textTheme.bodyLarge?.copyWith(color: textColor),
                   ),
           )
-        : ElevatedButton(
-            onPressed: () {
-              if (isLoading == false) {
-                FocusScope.of(context).unfocus();
-                onTap();
-              }
-            }, //
-            style: ElevatedButton.styleFrom(
-              backgroundColor: bgColor, //
-              elevation: elevation, //
-              shadowColor: shadowColor.withOpacity(0.5),
-              overlayColor: bgColor.withOpacity(0.1), // Set your splash color h
-              splashFactory: InkRipple.splashFactory,
-              shape: RoundedRectangleBorder(side: BorderSide(color: borderColor, width: 1), borderRadius: BorderRadius.circular(radius)),
-              maximumSize: Size.fromHeight(height),
-              minimumSize: Size(width, height),
+        : Container(
+            decoration: BoxDecoration(
+              color: hasGradiant ? null : bgColor,
+              borderRadius: BorderRadius.circular(Dimensions.space8),
+              gradient: hasGradiant ? const LinearGradient(stops: [0.04, 0.4], begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [MyColor.lightSecondaryButton, MyColor.lightSecondary]) : null,
             ),
-            child: isLoading
-                ? const SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: CircularProgressIndicator(color: Colors.white),
-                  )
-                : Text(text, //
-                  style: theme.textTheme.bodyLarge?.copyWith(color: textColor)),
+            child: ElevatedButton(
+              onPressed: () {
+                if (isLoading == false) {
+                  FocusScope.of(context).unfocus();
+                  onTap();
+                }
+              }, //
+              style: ElevatedButton.styleFrom(
+                backgroundColor: MyColor.transparent, //
+
+                elevation: elevation, //
+                shadowColor: shadowColor.withValues(alpha: 0.5),
+                overlayColor: bgColor.withValues(alpha: 0.1), // Set your splash color h
+                splashFactory: InkRipple.splashFactory,
+                shape: RoundedRectangleBorder(side: BorderSide(color: borderColor, width: 1), borderRadius: BorderRadius.circular(radius)),
+                maximumSize: Size.fromHeight(height),
+                minimumSize: Size(width, height),
+              ),
+              child: isLoading
+                  ? const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(color: Colors.white),
+                    )
+                  : Text(text, //
+                      style: textStyle ?? theme.textTheme.headlineSmall?.copyWith(color: textColor ?? MyColor.getHeadingTextColor())),
+            ),
           );
   }
 }

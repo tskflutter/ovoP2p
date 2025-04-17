@@ -1,4 +1,3 @@
-
 import 'package:ovolutter/core/utils/my_strings.dart';
 import 'package:ovolutter/data/model/global/response_model/response_model.dart';
 import 'package:ovolutter/data/model/notification/notification_response_model.dart';
@@ -12,74 +11,81 @@ import '../../repo/notification_repo/notification_repo.dart';
 class NotificationsController extends GetxController {
   NotificationRepo repo;
   bool isLoading = true;
+  bool newTradeRequest = false;
+  bool paymentUpdate = false;
+  bool escrowReleaseUpdate = false;
+  bool depositConfirmation = false;
+  bool withdrawalUpdates = false;
+
+  changeStatus() {
+    newTradeRequest = !newTradeRequest;
+    update();
+  }
 
   NotificationsController({required this.repo});
 
   String? nextPageUrl;
   String? imageUrl;
 
+  List<Data> notificationList = [];
 
-   List<Data> notificationList = [];
+  int page = 0;
 
-   int page = 0;
-
-   void clearActiveNotificationInfo(){
-     SharedPreferenceService.setBool(SharedPreferenceService.hasNewNotificationKey,false);
-   }
+  void clearActiveNotificationInfo() {
+    SharedPreferenceService.setBool(SharedPreferenceService.hasNewNotificationKey, false);
+  }
 
   Future<void> initData() async {
-    page=page+1;
-     if(page==1){
-       notificationList.clear();
-       isLoading=true;
-       update();
-     }
+    page = page + 1;
+    if (page == 1) {
+      notificationList.clear();
+      isLoading = true;
+      update();
+    }
 
-     ResponseModel response = await repo.loadAllNotification(page);
-     if(response.statusCode==200){
-       NotificationResponseModel model = NotificationResponseModel.fromJson(response.responseJson);
+    ResponseModel response = await repo.loadAllNotification(page);
+    if (response.statusCode == 200) {
+      NotificationResponseModel model = NotificationResponseModel.fromJson(response.responseJson);
 
-       nextPageUrl=model.data?.notifications?.nextPageUrl;
-       if(model.status?.toLowerCase() == MyStrings.success.toLowerCase()){
-         List<Data>?tempList= model.data?.notifications?.data;
-         if(tempList!=null && tempList.isNotEmpty){
-           notificationList.addAll(tempList);
-         }
-       }else{
-         CustomSnackBar.error(errorList: model.message??[MyStrings.somethingWentWrong]);
-       }
-     }else{
-       CustomSnackBar.error(errorList: [response.message]);
-     }
+      nextPageUrl = model.data?.notifications?.nextPageUrl;
+      if (model.status?.toLowerCase() == MyStrings.success.toLowerCase()) {
+        List<Data>? tempList = model.data?.notifications?.data;
+        if (tempList != null && tempList.isNotEmpty) {
+          notificationList.addAll(tempList);
+        }
+      } else {
+        CustomSnackBar.error(errorList: model.message ?? [MyStrings.somethingWentWrong]);
+      }
+    } else {
+      CustomSnackBar.error(errorList: [response.message]);
+    }
 
-     if(page==1){
-       isLoading=false;
-     }
+    if (page == 1) {
+      isLoading = false;
+    }
     update();
-   }
-
+  }
 
   bool hasNext() {
-    return nextPageUrl != null && nextPageUrl!.isNotEmpty && nextPageUrl!.toLowerCase()!='null'? true : false;
+    return nextPageUrl != null && nextPageUrl!.isNotEmpty && nextPageUrl!.toLowerCase() != 'null' ? true : false;
   }
 
   Future<bool> markAsReadAndGotoThePage(int index) async {
     int? id = notificationList[index].id;
-    ResponseModel response = await repo.readNotification(id??0);
-    if(response.statusCode==200){
+    ResponseModel response = await repo.readNotification(id ?? 0);
+    if (response.statusCode == 200) {
       auth_model.AuthorizationResponseModel model = auth_model.AuthorizationResponseModel.fromJson(response.responseJson);
-      if(model.status!.toLowerCase()==MyStrings.success.toLowerCase()){
+      if (model.status!.toLowerCase() == MyStrings.success.toLowerCase()) {
         //checkAndRedirect(remark, clickValue);
-      }else{
-        CustomSnackBar.error(errorList: model.message??[MyStrings.somethingWentWrong]);
+      } else {
+        CustomSnackBar.error(errorList: model.message ?? [MyStrings.somethingWentWrong]);
       }
-    }else{
+    } else {
       CustomSnackBar.error(errorList: [response.message]);
     }
 
     return true;
   }
 
-  checkAndRedirect(String remark,String? tradeId) async{}
-
+  checkAndRedirect(String remark, String? tradeId) async {}
 }

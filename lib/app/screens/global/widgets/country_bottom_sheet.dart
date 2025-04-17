@@ -6,7 +6,6 @@ import 'package:ovolutter/app/components/image/my_network_image_widget.dart';
 import 'package:ovolutter/data/controller/controller/country_countrolelr.dart';
 import 'package:ovolutter/data/model/country_model/country_model.dart';
 
-
 import '../../../../core/utils/util_exporter.dart';
 
 class CountryBottomSheet {
@@ -16,9 +15,9 @@ class CountryBottomSheet {
   }) {
     CountryController countryController = CountryController();
     countryController.initialize(); // Load country data
-   ThemeData theme = Theme.of(context);
+    ThemeData theme = Theme.of(context);
     CustomBottomSheetPlus(
-      bgColor: theme.cardColor,
+      bgColor: MyColor.getBackgroundColor(),
       child: StatefulBuilder(
         builder: (BuildContext context, setState) {
           return Container(
@@ -35,7 +34,6 @@ class CountryBottomSheet {
                 const BottomSheetBar(),
                 const SizedBox(height: 15),
                 TextField(
-                  
                   controller: countryController.searchController,
                   onChanged: (query) {
                     setState(() {
@@ -43,13 +41,16 @@ class CountryBottomSheet {
                     });
                   },
                   decoration: InputDecoration(
-                    hintText: MyStrings.searchCountry.tr,
-                    prefixIcon:  Icon(
-                      Icons.search,
-                      color:  MyColor.getBodyTextColor(),
-                    ),
-                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color:  MyColor.getPrimaryColor(),))
-                  ),
+                      hintText: MyStrings.searchCountry.tr,
+                      hintStyle: theme.textTheme.bodyMedium?.copyWith(color: MyColor.getBodyTextColor()),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: MyColor.getBodyTextColor(),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                        color: MyColor.getPrimaryColor(),
+                      ))),
                   cursorColor: MyColor.getBodyTextColor(),
                 ),
                 spaceDown(Dimensions.space24),
@@ -97,13 +98,13 @@ class CountryBottomSheet {
                                 padding: const EdgeInsetsDirectional.only(end: Dimensions.space10),
                                 child: Text(
                                   '+${countryItem.dialCode}',
-                                  style:  theme.textTheme.bodyLarge?.copyWith(),
+                                  style: theme.textTheme.bodyLarge?.copyWith(),
                                 ),
                               ),
                               Expanded(
                                 child: Text(
                                   '${countryItem.country}',
-                                  style:  theme.textTheme.bodyMedium?.copyWith(),
+                                  style: theme.textTheme.bodyMedium?.copyWith(),
                                 ),
                               ),
                             ],
